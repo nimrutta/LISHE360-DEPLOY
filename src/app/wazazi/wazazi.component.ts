@@ -20,9 +20,11 @@ import { Makalatitles } from '../makalatitles';
 import { SearchService } from '../core/search.service';
 import { PasseventsService } from '../core/passevents.service';
 import { BidhaaService } from './../core/bidhaa.service';
-import { Bidhaa } from './../bidhaa'
+import { Bidhaa } from './../bidhaa';
+import { DatacarrierService } from './../core/datacarrier.service';
 
 import { Subject } from 'rxjs/Subject';
+import { debug } from 'util';
 @Component({
   selector: 'app-wazazi',
   templateUrl: './wazazi.component.html',
@@ -32,10 +34,10 @@ import { Subject } from 'rxjs/Subject';
       state('in', style({transform: 'translateX(0px)'})),
       transition('void => *', [
         style({transform: 'translateX(-100%)'}),
-        animate(1000)
+        animate(500)
       ]),
       transition('* => void', [
-        animate(1000, style({transform: 'translateX(-100%)'}))
+        animate(500, style({transform: 'translateX(-100%)'}))
       ])
     ])
   ],
@@ -48,9 +50,11 @@ export class WazaziComponent implements OnInit {
 
   category: Makalacategory[];
   makala: Makalatitles[];
-  bidhaa: Bidhaa[];
+  bidhaa= [];
   subscription: any;
   _subscription: any;
+  whatsapplink = []; /* an array of product names is 
+                    created when componet is loaded */
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
@@ -61,11 +65,14 @@ export class WazaziComponent implements OnInit {
                private bidhaaService: BidhaaService,
                private router: Router,
                private location: Location,
-               private makalatitlesService: MakalatitlesService, ) {
+               private makalatitlesService: MakalatitlesService,
+               public datacarrierService:DatacarrierService, ) {
     // passeventsService.navigateout$.subscribe(
     //   searchInputStatus => { this.showSearchInput = searchInputStatus}
     // );  // causes ExpressionChangedAfterItHasBeenCheckedError error
-          
+    this.bidhaa = [];
+    this.whatsapplink = [];
+
     this.searchService.callSearch(this.searchTerm$);
 
     this.subscription = this.makalatitlesService.fetchedCategories.subscribe((value) => { //ame subscribe kwa observable ya makala
@@ -77,6 +84,19 @@ export class WazaziComponent implements OnInit {
     //this.setToNull();
     });
 
+   // this.bidhaa = bidhaaService.bidhaa;
+     this.subscription = this.bidhaaService.fetchedBidhaa.subscribe((value) => {
+         
+          this.bidhaa.length = 0;    //clear bidhaa array; avoid multiple entries
+
+          value.map(x=>(!x.status?this.bidhaa.push(x):'')) //create an array of promotion products
+         
+          value.map((x, index)=>(!x.status?this.whatsapplink.push("https://api.whatsapp.com/send?phone=255688192446&text=Nahitaji%20" + x.name):''));   //create an array of products names
+         
+         console.log(this.whatsapplink);
+      });
+
+      this.datacarrierService.setLandingPageStatus(false); // to remove landing page from view
    }
   
   showId = false;
@@ -89,10 +109,15 @@ export class WazaziComponent implements OnInit {
   showSearchInput = true;
   searchboxSS = false;
   showmakalaTitles = false;
+  showmakalaTitlesSS = true;
   toggle = {};
   currentUrl : string;
   showmyod = false;
   thanksforjoiningprogram = false;
+  url = '/wazazi/makala/';
+  urllength = this.url.length;
+  isNunuaBidhaaForm = false;
+  orderText: String;      //pass name of item ordered to nunuabidhaa componet
 
   ngOnInit() {
         console.log('wazazi component created') 
@@ -133,22 +158,24 @@ export class WazaziComponent implements OnInit {
         this.currentUrl = this.router.url;
         console.log(this.currentUrl + 'xks');
        
-
         if (this.currentUrl === ('/wazazi/blog-section' )) {
-          this.showsearch = true;
+          this.showsearch = true;        
           console.log('1. if');
           console.log(this.showsearch);
         }
-        else if (this.currentUrl.substring(0,19) ===  '/wazazi/soma-zaidi/') {
+        else if (this.currentUrl.substring(0,21) ===  '/wazazi/blog-section/') {
           this.showsearch = true;
         }
-
+        else if (this.currentUrl.substring(0,this.urllength) ===  '/wazazi/makala/') {
+          this.showsearch = true;
+        }
         else {
           this.showsearch = false;
           console.log('2. else');
           console.log(this.showsearch);
         }
-
+ 
+        this.loadProducts(); //Get all products
         this.makalatitlesService.getMakalatitles();
   }
   
@@ -289,9 +316,40 @@ export class WazaziComponent implements OnInit {
   }
 
 
+  //To fetch products displayed on adds section
   getBidhaa() {
     this.bidhaaService.getProducts().then(bidhaa => this.bidhaa = bidhaa);
   }
 
+  //To fetch all products when navigating to products page
+  loadProducts() {
+    console.log('CALLED')
+    //this.bidhaa.length = 0;    
+    this.bidhaaService.getAllBidhaa();
+  }
+
+  promotedProductsLinks(value,index){
+    this.whatsapplink[index] = "https://api.whatsapp.com/send?phone=255688192446&text=Nahitaji%20" + value.name;
+ }
+
+ showNunuaBidhaaForm(i) {
+  this.orderText = 'Nahitaji ' + this.bidhaa[i].name; 
+  this.isNunuaBidhaaForm = true; 
+}
+
+ closeButtonClickedWazazi($event){
+  if(this.isNunuaBidhaaForm) {
+     this.isNunuaBidhaaForm = false;
+  }
+
+  console.log('closebuttonclicked method');
+  console.log(this.isNunuaBidhaaForm);
+}
+
+myevenTWazazi($event){
+  if(this.isNunuaBidhaaForm) {
+     this.isNunuaBidhaaForm = false;
+  }
+}
 
 }

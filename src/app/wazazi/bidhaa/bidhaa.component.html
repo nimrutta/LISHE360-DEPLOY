@@ -3,10 +3,13 @@
     <div class="col-sm-3 ">
      <div class="makundiyabidhaa For_LS">
        <h3>Aina ya bidhaa</h3>
-       <!--<ul *ngFor= "let category of bidhaacategory">
-         <li  routerLink="/wazazi/bidhaa-category/{{category.id}}" routerLinkActive="active"></li>
-       </ul>-->
-        <ul>
+       <ul>
+         <li routerLink="/wazazi/bidhaa/bidhaa-category" routerLinkActive="active"  >Bidhaa Zote</li>
+       </ul>
+       <ul *ngFor= "let category of bidhaacategories">
+         <li  routerLink="/wazazi/bidhaa/bidhaa-category/{{category.id}}" routerLinkActive="active" (click)="navigateToCategory(category.id)">{{category.name}}</li>
+       </ul>
+     <!--   <ul>
           <li>Vyombo vya kulishia watoto</li>
           <li>Nafaka zilizo andaliwa</li>
           <li>Unga wa lishe</li>
@@ -17,20 +20,22 @@
           </div>
            <i class="glyphicon glyphicon-chevron-down" *ngIf="!showMoreBidhaa" (click)="showMoreBidhaafn()"></i>
            <i class="glyphicon glyphicon-chevron-up" *ngIf="showMoreBidhaa" (click)="showMoreBidhaafn()"></i>
-        </ul>
+        </ul> -->
      </div>
+
 
 
      <div class="makundiyabidhaa For_SS">
       <h3>Aina ya bidhaa</h3>
        <ul>
-         <li>Vyombo vya kulishia watoto</li>
-         <li>Nafaka zilizo andaliwa</li>
-         <li>Unga wa lishe</li>
-         <div *ngIf="showMoreBidhaa">
-           <li>Bidhaa 4</li>
-           <li>Bidhaa 5</li>
-           <li>Bidhaa 6</li>
+         <li routerLink="/wazazi/bidhaa/bidhaa-category" routerLinkActive="active"  >Bidhaa Zote</li>
+       </ul>
+       <ul>
+         <div *ngFor= "let category of bidhaacategories; let i = index">
+            <li *ngIf="i < 2" routerLink="/wazazi/bidhaa/bidhaa-category/{{category.id}}" routerLinkActive="active" (click)="navigateToCategory(category.id)">{{category.name}}</li>
+         </div>
+         <div *ngFor= "let category of bidhaacategories; let i = index">
+            <li *ngIf="(i >= 2) && showMoreBidhaa" routerLink="/wazazi/bidhaa/bidhaa-category/{{category.id}}" routerLinkActive="active" (click)="navigateToCategory(category.id)">{{category.name}}</li>
          </div>
            <i class="glyphicon glyphicon-chevron-down" *ngIf="!showMoreBidhaa" (click)="showMoreBidhaafn()"></i>
            <i class="glyphicon glyphicon-chevron-up" *ngIf="showMoreBidhaa" (click)="showMoreBidhaafn()"></i>
@@ -38,8 +43,17 @@
     </div>
 
     </div>
+
     <div class="col-sm-9">
+
+      <div *ngIf="!sortByCategory">
       <app-bidhaa-category></app-bidhaa-category>
+      </div>
+
+      <div *ngIf="sortByCategory">
+      <router-outlet></router-outlet>
+      </div>
+      
     </div>
 
   </div>

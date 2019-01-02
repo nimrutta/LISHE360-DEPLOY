@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../core/authentication.service';
 
 declare var $:any;
 
@@ -16,6 +17,7 @@ export const ROUTES: RouteInfo[] = [
     { path: 'clients', title: 'Clients', icon:'ti-user' , class: '' },
     { path: 'subscribers', title: 'Subscribers',  icon:'ti-view-list-alt' , class: '' },
     { path: 'bidhaa', title: 'Products',  icon:'ti-shopping-cart' , class: '' },
+    { path: './../login', title: 'Logout',  icon:'ti-user' , class: '' },
    // { path: 'maps', title: 'Maps',  icon:'ti-map', class: '' },
    // { path: 'notifications', title: 'Notifications',  icon:'ti-bell', class: '' },
   
@@ -29,6 +31,10 @@ export const ROUTES: RouteInfo[] = [
 })
 
 export class SidebarComponent implements OnInit {
+
+    constructor() {
+
+    }
     public menuItems: any[];
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);

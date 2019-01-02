@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';    //obtain absolute page path   ;never used
 
 import { Makalatitles } from '../../makalatitles';
 import { MakalatitlesService } from '../../core/makalatitles.service';
@@ -21,10 +23,17 @@ export class MakalaComponent implements OnInit {
    blogpost: Blogpost[];
    subscription: any;
    searchInputStatus = false;
+   showmyId = false;
+   thanksforjoiningprogram = false;
+
+   public defaultSocialShareText = [];
+   public socialShareUrl = [];
 
   constructor( private blogpostService: BlogpostService,
                private makalatitlesService:MakalatitlesService,
-               private passeventsService: PasseventsService,) { 
+               private passeventsService: PasseventsService,
+               private activatedRoute: ActivatedRoute,
+               @Inject(DOCUMENT) document: any) {          //never used
      this.blogpost = blogpostService.blogpost;
      this.subscription = this.blogpostService.fetchedBlogpost.subscribe((value) => {
      this.blogpost = value;
@@ -33,23 +42,49 @@ export class MakalaComponent implements OnInit {
      this.article = makalatitlesService.article;
      this._subscription = this.makalatitlesService.fetchedArticle.subscribe((value) => {
      this.article = value;
+     value.forEach( (item, index) => {        
+      this.socialShareParameters(item, index);
+     });
+
+
   })
     }
 
-  ngOnInit() {
-    var that = this;
-    setTimeout(function() {
-           console.log('timeout method fired');
-           console.log(that.article);
-           console.log(that.blogpost)
-           console.log('timeout method fired a');
-  }, 3000);
+   ngOnInit() {
 
-  this.removeSearchInput()
+  this.getArticleViaRouter();
+  this.removeSearchInput();
   }
 
-  removeSearchInput() {
+   removeSearchInput() {
     this.passeventsService.exitblogsection(this.searchInputStatus);
 }
+
+   socialShareParameters(item,index){
+     this.socialShareUrl[index] = document.location.href;
+     this.defaultSocialShareText[index] = item.title ;
+  }
+
+   togglemyId() {
+    this.showmyId = !this.showmyId;
+  }
+
+   myevenT($event){
+    this.showmyId = !this.showmyId;
+    this.thanksforjoiningprogram = !this.thanksforjoiningprogram;
+  }
+
+   closeButtonClicked($event){
+       this.showmyId = !this.showmyId;
+    }
+
+   closeModal($event){
+    this.thanksforjoiningprogram = !this.thanksforjoiningprogram;
+    }
+
+   getArticleViaRouter() {
+      const id = +this.activatedRoute.snapshot.paramMap.get('id');
+      this.makalatitlesService.getArticle(id);   
+    }
 
 }

@@ -18,6 +18,29 @@
   }
   
   /*---------------------------------------------*/
+
+  .loginbed {
+     margin: 200px 0 0 24%;
+  }
+
+  .form-group {
+     margin: 25px 0 0 0;
+  }
+
+  .loginbutton {
+    color: rgba(101, 47, 133, 0.6);
+     margin: 0 0 0 0;
+     padding: 0 10px;
+     height: 30px;
+     width: fit-content;
+     border-radius: 2px !important;
+  }
+
+  .loginbutton:hover {
+    color: #fff;
+    background-color: rgba(101, 47, 133, 0.9);
+  }
+
   a {
       font-family: Poppins-Regular;
       font-size: 14px;
@@ -60,8 +83,9 @@
   
   /*---------------------------------------------*/
   input {
+      padding: 0 0 0 15px;
       outline: none;
-      border: none;
+      border: solid 2px rgba(101, 47, 133, 0.6);
   }
   
   textarea {
@@ -97,8 +121,8 @@
   button {
       outline: none !important;
       border: none;
-      background: transparent;
-  }
+     
+  } 
   
   button:hover {
       cursor: pointer;

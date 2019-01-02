@@ -13,7 +13,7 @@ import { Blogpost } from './../blogpost';
 export class BlogpostService {
   
   blogpost: Blogpost[];
-  private blogpostUrl = 'http://api.jualishebora.gq/api/v1/posts'
+  private blogpostUrl = 'http://localhost:8000/api/v1/posts';  // 'http://api.jualishebora.gq/api/v1/posts'
   
   //http://api.jualishebora.gq/api/v1/topics  
   //http://api.tuseme.co.tz/api/v1/reports
@@ -26,10 +26,18 @@ export class BlogpostService {
 
 
 
+  upload(fileToUpload: any) {
+    let input = new FormData();
+    input.append("audio", fileToUpload);
+
+    return this.http.post("http://localhost:8000/api/v1/audio", input);
+}
+
+
   postFile(fileToUpload: File): Observable<boolean> {
-    const endpoint = 'http://api.jualishebora.gq/api/v1/images';
+    const endpoint = 'http://localhost:8000/api/v1/audio';
     const formData: FormData = new FormData();
-    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('audio', fileToUpload, fileToUpload.name);
     return this.http
       .post(endpoint, formData, { headers: this.headers })
       .map(() => { return true; })

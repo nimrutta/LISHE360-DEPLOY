@@ -6,6 +6,7 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { AuthGuard } from './auth.guard';
 
 import { AdminComponent } from './admin.component';
 import { AndikaMakalaComponent } from './andika-makala/andika-makala.component';
@@ -63,6 +64,8 @@ import { BidhaaComponent } from './bidhaa/bidhaa.component';
                  FileSelectDirective, 
                  FileDropDirective, LoginComponent, SignupComponent, UploadVideoComponent, BidhaaComponent],
 
-  providers: [ ],
+  providers: [
+    AuthGuard,
+   ],
 })
 export class AdminModule { }

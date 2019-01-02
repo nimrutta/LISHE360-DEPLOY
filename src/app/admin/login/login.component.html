@@ -1,85 +1,28 @@
-<head>
-	<title>Login V6</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="../../assets/login/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../../assets/login/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../../assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../../assets/login/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../../assets/login/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="../../assets/login/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../../assets/login/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../../assets/login/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="../../assets/login/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../../assets/login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/login/css/main.css">
-<!--===============================================================================================-->
-</head>
 
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-70">
-						Welcome
-					</span>
-					<span class="login100-form-avatar">
-						<img src="images/avatar-01.jpg" alt="AVATAR">
-					</span>
 
-					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-						<input class="input100" type="text" name="username">
-						<span class="focus-input100" data-placeholder="Username"></span>
-					</div>
 
-					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-						<input class="input100" type="password" name="pass">
-						<span class="focus-input100" data-placeholder="Password"></span>
-					</div>
 
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
 
-					<ul class="login-more p-t-190">
-						<li class="m-b-8">
-							<span class="txt1">
-								Forgot
-							</span>
 
-							<a href="#" class="txt2">
-								Username / Password?
-							</a>
-						</li>
-
-						<li>
-							<span class="txt1">
-								Don’t have an account?
-							</span>
-
-							<a href="#" class="txt2">
-								Sign up
-							</a>
-						</li>
-					</ul>
-				</form>
+	<div class="col-md-6 col-md-offset-3 loginbed">
+		<h2>Login</h2>
+		<form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+				<div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
 			</div>
-		</div>
+			<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+				<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+			</div>
+			<div class="form-group">
+				<button [disabled]="loading" type="submit" class="btn btn-primary loginbutton" >Login</button>
+				<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+				<!--<a [routerLink]="['/register']" class="btn btn-link">Register</a> -->
+			</div>
+		</form>
 	</div>
-	
 
-	<div id="dropDownSelect1"></div>
+	<br><br><br>

@@ -27,13 +27,26 @@
 
   .brand {
       width: 100%;
+      margin: 7px 0 0 0;
   }
 
   .icon {
       height: 400px;
       width: 300px;
-      margin: auto 15% auto 0;
-      float: right;
+      margin: auto 6% auto 8%;
+      display: inline-block;
+     
+   }
+
+   .brandname {
+        color: #949494;
+        font-size: 18px;
+        margin: 43px 5px 0 0;    /*margin top to match margin top menuitems2*/
+        float: right;
+    }
+
+   .brandname:hover {
+        color: rgba(70, 26, 66, .8);
    }
   
   .clogotext {
@@ -49,10 +62,13 @@
 
    .navbar img {
 
-       height: 65px;
+       height: 59px;
        width: 65px;
        margin-top: 13px;
+       display: inline-block;
    }
+
+ 
 
   .navbar h3 {
       margin-top: 8px;
@@ -82,7 +98,7 @@
   }
 
   .active {
-      color: #652f85 !important;
+      color: rgba(70, 26, 66, .8) !important;
   }
   
   .nav li {
@@ -101,19 +117,19 @@
       }  
   
     nav ul li a {
-          color: #bfbcc0;
+          color: #949494;
           padding-top: 4px;
           height: 20px;
     }
 
     .menuitems2 ul li a:hover {
-        color:  #4d2068 !important;
+        color:  rgba(70, 26, 66, .8) !important;
         text-decoration-line: none;
     }  
 
   
     .calltoactionli {
-       float: right;
+       margin: 0 0 0 120px !important; 
     }
 
     .calltoaction {
@@ -128,7 +144,7 @@
     .calltoaction button {
         color: #fff;
         font-size: 14px;
-        background-color: rgba(40, 54, 85, .7);
+        background-color: rgba(70, 26, 66, .8); /*rgba(40, 54, 85, 1)*/
         padding: 7px 9px;
         margin: 0 0 0 0;
         border: none;
@@ -142,7 +158,7 @@
 
   .menuitems {
       
-      background-color: #652f85;
+      background-color: rgba(70, 26, 66, .8);
       width: 100%;
       height: 9px;
       
@@ -150,7 +166,7 @@
       border-bottom-left-radius: 4px;
       margin-right: 0 !important;
       margin-top: 5px;
-      
+      box-shadow: 0px 5.5px 5px -4px #000;
   }
   .nav { 
       margin-right: 2%;
@@ -205,12 +221,12 @@
         color: #fff;
         height: 60px;
         width: 200px;
-        background-color: rgba(40, 54, 85, .7);
+        background-color: rgba(70, 26, 66, .8);
         padding: 7px 0 0 0;
         margin: 20px 0 0 11%;
         border: none;
         border-radius: 4px;
-        box-shadow: 2px 1.5px 17px -7px #000;       
+        box-shadow: 0px 7px 9px -8px #000;       
 }
 
 .Makalabutton p {
@@ -225,6 +241,12 @@ a > .Makalabutton  :hover {
 
 .makalatitles {
         position: relative;
+}
+
+.Makalabutton img {
+        height: 17px;
+        width: 17px;
+        margin: 0 0 0 2px;
 }
 
 .glyphicon-list-alt {
@@ -248,25 +270,27 @@ a > .Makalabutton  :hover {
 
 .searchbox { 
        height: 40px;
-       border: 1px solid  rgba(0,0,0, 0.4); 
+       /*border: 2px solid  rgba(0,0,0, 0.4); */
+       border: none;
        border-radius: 17px;
        border-top-right-radius: 0;
        border-bottom-right-radius: 0;
        background-color: none;
        border-right: none;
+       box-shadow: 0px 2px 20px -9px #000;
        margin-top: 0;
-       margin-left: 10%;
+       margin-left: 9%;
        padding: 0 0 0 15px;
 }
 
-.search hr {
+.horizontalline {
        width: 80%;
-       margin:80px 0 0px 10%;
+       margin:8vh 0 8vh 10%;
 }
 
 .makalamaelekezo {
-        color: #b4b2b2;
-        font-size: 12px;
+        color: rgba(0, 0, 0, 0.8);
+        font-size: 13px;
         font-family: Montserrat;
         width: 77%;
         margin: 10px 0 0 11%;
@@ -275,12 +299,12 @@ a > .Makalabutton  :hover {
 
 .Rudimwanzobutton {
         font-size: 15px;
-        color: #fff;
+        color: rgba(0, 0, 0, 0.8);
         height: 40px;
         width: 200px;
-        background: rgba(0,0,0, 0.7);
+        background: none;  /*rgba(0,0,0, 0.7); */
         padding: 7px 0 0 0;
-        margin: 35px 0 0 11%;
+        margin: 0 0 10px 11%;
         border: none;
         border-radius: 4px;  
 }
@@ -291,17 +315,19 @@ a > .Makalabutton  :hover {
 
 input::placeholder {
        font-family: Montserrat-Regular;
-       color: #cdcdcd;
+       color: rgba(0, 0, 0, 0.6);
   /*rgba(255,182,193, 0.4); */}
 
 .Tafutabutton {
        height: 40px;
        background-color: #fff;
        border-radius: 17px;
-       border: 1px solid rgba(0,0,0, 0.3);
+       /*border: 2px solid rgba(0,0,0, 0.4); */
+       border: none;
        border-top-left-radius: 0;
        border-bottom-left-radius: 0; 
        border-left: none; 
+       box-shadow: 1px 2px 13px -7px #000;
        margin-left: -4px;   
 } 
 
@@ -315,7 +341,7 @@ input::placeholder {
 }
 
 .anitem {
-        margin: 15px 0 20px 0;
+        margin: 10vh 0 10vh 0;
 }
 
 .bidhaasectiontitle {
@@ -336,6 +362,16 @@ input::placeholder {
         font-family: montserrat-regular;
         font-size: 13px;
 }
+
+#contact   {
+        font-size: 14px;
+        margin: 0 15px 0 0;
+        float: right;
+     }
+
+#contact a {
+        color: rgba(101, 47, 133, 1);
+     }
 
 .clear {
        clear: both;            /* to solve float overlapping issues */ 
@@ -389,11 +425,11 @@ input::placeholder {
 @media all and (max-width: 768px){
 .navdiv {
         width: 100%;
-        height: 124px;
+        height: fit-content;  /*124px*/
 }
 
 nav {   width: 100%;
-        height:124px !important;
+        height:fit-content;  /*124px !important*/
         border: none;
         background-color:#f4f4f4 !important; 
 }
@@ -409,33 +445,47 @@ nav {   width: 100%;
 
 .menurow {
         height: fit-content;
+        margin: 0 0 8px 0;
 }
 
 .logorow {
-        height: 60px;
-        
+        height: fit-content;
+        width: 100%;
         margin: 0 0 5px 0;
+        display: block;
+        overflow: auto; 
+}
+
+.logorow a {
+        width: 100%;
+        height: fit-content;
 }
 
 .brand {
-        height: 55px;
+        height: fit-content;
+        width: 100%;
         margin-top: 13px;
+}
+
+.brandname {
+        margin: 1px 5px 0 0;
+        font-size: 13px; 
+        font-weight: 700;
+        width: 300px;
+        display: inline-block;
+        float: none;
 }
 
 .navbar img {
 
-        height: 55px;
+        height: 52px;
         width: 55px;
-        margin-top: 0;  
-}
-
-.menuitems {
-        margin-bottom: 0;
+        margin: 0 6% auto 4%;
 }
 
 .ssnavbar {
         display: inherit;
-        margin: 15px 0 0 0;
+        margin: 7px 0 0 0;
 }
 
 .calltoaction {
@@ -447,8 +497,18 @@ nav {   width: 100%;
         float: right;
     }
 
+
+ .calltoaction button {
+        color: rgba(70, 26, 66, .8);
+        font-size: 14px;
+        background: none;
+        background-color: none;
+        box-shadow: 0 0 0 0 #000; 
+    }
+
 .ss_search_row {
          width: 100%;
+         margin-bottom: 5px;
 }
 
 .ss_search_row .column2 {
@@ -485,7 +545,7 @@ nav {   width: 100%;
       
 .form-control + .ss-searchicon {
         position: absolute;
-        right: 13px;
+        right: 17px;
         padding: 8px 27px;
       }
 
@@ -496,7 +556,7 @@ nav {   width: 100%;
         border-radius: 17px;
         background-color: none;
         border-right: none;
-        margin-top: 15px;
+        margin-top: 10px;
         margin-left: 0;
         padding: 0 30px 0 15px;
         display: inline-block;
@@ -505,7 +565,7 @@ nav {   width: 100%;
 .ss-searchicon {
         color: rgba(0,0,0, 0.3);
         font-size: 12px;
-        margin-top: 15px;
+        margin-top: 10px;
         display: inline-block;
 }
 
@@ -554,7 +614,7 @@ input::placeholder {
 
 
 .HM {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(70, 26, 66, .8);
         border: none;
         padding: 8px 6px;
         margin: 3px 15px 4px 22px;
@@ -562,7 +622,7 @@ input::placeholder {
 }
 
 .HM:focus {
-        background-color: rgba(0, 0, 0, 0.5) !important;      
+        background-color: rgba(70, 26, 66, .8) !important;      
 }
 
 .HM span {
@@ -576,7 +636,10 @@ input::placeholder {
 }
 
 .menuitems {
+        background-color: rgba(70, 26, 66, .9);          
         margin: 2px 0 0 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
 }
 
 .navbar-collapse {
@@ -585,25 +648,27 @@ input::placeholder {
 
 
 .ssmenu {
-        width: 90%;
-        height: fit-content;
+        width: 75%;
+        height: 400px;
         padding: 0;
-        margin: 1px 0 0 0;
+        margin: 0 0 0 0;
         border: none;
         border-bottom-right-radius: 4px;
        
         display: inherit;
-        overflow: hidden;
-        z-index: 1000;
+        overflow-x: auto;
+        position: absolute;
+        
 }
 
 .menuitem_SS {
-      background-color:#292626;/* linear-gradient(#292626,rgb(172, 169, 169));*/
-      width:80%;
+      background-color:rgba(70, 26, 66, 1);/* linear-gradient(#292626,rgb(172, 169, 169));*/
+      width:100%;
       height: auto;
       padding: 30px 0 7px 10px !important;
       margin: 0 !important;
       display: block;  
+      
 }
 
 .menuitem_SS li {
@@ -616,8 +681,8 @@ input::placeholder {
         text-align: left;
 } 
 
-.menuitem_SS li .glyphicon {
-        color: #66a8a6;
+.menuitem_SS li .glyphicon {              /*CHANGE*/
+        color: #fff;
 }
 
 .menuitem_SS li i {
@@ -638,12 +703,21 @@ input::placeholder {
        margin: 40px 20px 30px 10px;
   }
 
+#mapishiyavyakula {
+       width: 100%;
+}
+
 .ss_makalaitem a {
+       color: #fff;
        margin:  0 0 0 15px;
 }
 
-.ss_makalatitle {
-        color: #66a8a6 !important; 
+nav ul li a {                                    /*CHANGE*/
+        color: #fff !important;
+  }
+
+.ss_makalatitle {                               /*CHANGE*/
+        color: #fff !important; 
         margin: 0 0 15px 55px !important;
         list-style-type: none;
         font-size: 16px;
@@ -659,9 +733,7 @@ input::placeholder {
         margin: 0 0 15px 0;
 }
 
-nav ul li a {
-        color: #66a8a6 !important;
-  }
+
 
 
 /*.menuitem_SS button {
@@ -683,9 +755,32 @@ nav ul li a {
         text-align: left;
 }
 
-.sscol {
-        display: none;
+.drocol {
+        padding: 0 15px 0 15px;
   }
+
+/* .sscol {
+        display: none;
+  } */
+
+.searchsection {
+        float: none;
+ }
+
+.horizontalline {
+       display: none;
+}
+
+.search {
+        width: 94%;
+        margin: 0 0 3vh 0;
+}
+
+#ommitedinss {
+        display: none;
+}
+
+
 
 }
 

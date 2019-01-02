@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DatacarrierService } from './core/datacarrier.service';
 
 @Component({
@@ -8,5 +8,17 @@ import { DatacarrierService } from './core/datacarrier.service';
   providers: [DatacarrierService]
 })
 export class AppComponent {
+
+  constructor(public datacarrierService: DatacarrierService){
+   
+    datacarrierService.setLandingPageStatus$.subscribe(
+      status => {
+        this.isLandingpage = status;
+      });
+
+  }
   title = 'app works!';
+
+  isLandingpage = true;
+
 }

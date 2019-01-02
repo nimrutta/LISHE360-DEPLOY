@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 //import {HmrState} from  '@angularclass/hmr'; //'angular2-hmr'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -17,8 +17,11 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 @Component({
   selector: 'app-blog-soma-zaidi',
   templateUrl: './blog-soma-zaidi.component.html',
-  styleUrls: ['./blog-soma-zaidi.component.css']
+  styleUrls: ['./blog-soma-zaidi.component.css'],
 })
+
+
+
 export class BlogSomaZaidiComponent implements OnInit {
    
    Post: Blogpost[];
@@ -27,6 +30,9 @@ export class BlogSomaZaidiComponent implements OnInit {
    _subscription: any;
    blogId: number;
    post_id: number;
+   postlikes: number;
+   liked = false;
+   Dataready = false;
    
 
    constructor(private blogpostService: BlogpostService,
@@ -70,11 +76,15 @@ export class BlogSomaZaidiComponent implements OnInit {
    searchInputStatus = false;
    showThankyoumessage = false;
 
+   public defaultSocialShareText: string;
+   public socialShareUrl: string;
+
    
    comment = new Comment()
    comments : Comment[]
    coments : Comment[]
 
+   audiourl = '../../../../assets/John Denver - Take Me Home, Country Roads (Audio).mp3';
    videourl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/9tRepZdoRmY');  //Promote a Page- A Facebook Pages Tutorial - Facebook for Business.mp4
   // iframeURL = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/9tRepZdoRmY');  
 
@@ -88,6 +98,7 @@ export class BlogSomaZaidiComponent implements OnInit {
         this.comment.id = 1;
         this.comment.parent_id = 1;
         this.removeSearchInput();
+        this.postlikes = 45;
         console.log(this.Post)
 
         // this.blogId = this.datacarrierService.getData();
@@ -152,11 +163,17 @@ export class BlogSomaZaidiComponent implements OnInit {
     that.showThankyoumessage = !that.showThankyoumessage; 
     },2000);
    }
+   
   getaPostviaRouter() {
     this.post_id = +this.route.snapshot.paramMap.get('id');
     const id = +this.route.snapshot.paramMap.get('id');
-    this.blogpostService.getaPost(id).then(aPost => this.Post = aPost);
-    console.log(id);
+    this.blogpostService.getaPost(id).then(aPost => 
+    {this.Post = aPost; 
+     this.Dataready = true
+     this.socialShareUrl = document.location.href;
+     this.defaultSocialShareText = aPost[0].title ;
+    });
+    
   }
 
 
@@ -194,4 +211,15 @@ export class BlogSomaZaidiComponent implements OnInit {
      }, 1500);
      
    }
+
+   addLikes(){
+    if (!this.liked) {
+         this.postlikes = this.postlikes + 1;
+    }
+    else{
+         this.postlikes = this.postlikes - 1;
+    }
+         this.liked = !this.liked;
+  }
+
 }

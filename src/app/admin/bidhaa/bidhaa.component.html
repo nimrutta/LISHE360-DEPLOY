@@ -3,14 +3,28 @@
   
     <div class="entertitle">
       <label>Product category</label>
-      <select  class="selectbox" (input)="onInput($event)" [(ngModel)]="makalacategory" name="categoryname">   
-        <option *ngFor="let makalacategory of makalaCategories" value= {{makalacategory.id}} [ngValue]="makalacategory">{{makalacategory.category_name}}</option>
+      <select  class="selectbox" (input)="onInput($event)" [(ngModel)]="productcategory" name="categoryname">   
+        <option *ngFor="let productcategory of productsCategories" value= {{productcategory.id}} [ngValue]="productcategory">{{productcategory.name}}</option>
       </select>
     </div>
   
   
     <div class="entertitle">
-      <label>Product Name</label><input name="title">
+      <label>Product Name</label><input name="name" [(ngModel)]="bidhaa.name">
+      <br>
+    </div>
+
+    <div class="entertitle">
+      <label>Product Price</label><input name="price" [(ngModel)]="bidhaa.price">
+    </div>
+
+    <br>
+    <div class="selectstatus">
+    <form action="/action_page.php">
+        <label>Display on Home Page</label>
+        <input type="radio" name="gender" value="Yes" (click)="display()">Yes
+        <input type="radio" name="gender" value="No" (click)="donotdisplay()" checked="checked"> No
+    </form>
     </div>
  
     <div class="addimage">
@@ -18,17 +32,20 @@
       (onServerResponse) = "initializeImageId($event)"
       class="uploadimage"
     ></app-uploadimage>
-    <button  class="btn-success post-to-page" (click)="add(); clear()"> Post New Product </button>
+
+    <button  class="btn-success post-to-page" (click)="createProduct();"> Post New Product </button>
     </div>
 
-
-    <br><br><br><br>
+    <!--clear()-->
+    <br><br><br><br><br><br>
 
     <div class="addcategory">
       <h3>Add new Product category</h3>
-      <input placeholder="Category name">
-      <button class="btn-success" (click)="createMakalaCategory()">+</button>
-   </div>
+      <input placeholder="Category name"  name="name" [(ngModel)]="bidhaacategory.name">
+      <button class="btn-success" (click)="createProductCategory()">+</button>
+    </div>
+   <br>
+
 
 
    <div class="block">
@@ -48,11 +65,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let ctgry of makalacategories; let i = index">
+                <tr *ngFor="let productcategory of productsCategories; let i = index">
                     <td class="number">{{i + 1}}</td>
-                    <td><span *ngIf="!showEraser[i]">{{ctgry.category_name}}</span> <input *ngIf="showEraser[i]" [(ngModel)]="category.category_name" placeholder="{{ctgry.category_name}}"><button class="ti-close" *ngIf="showEraser[i]" (click)="alterEditMode(i)"></button></td>
-                    <td class="edit"><button (click) = "sendUpdate(ctgry.id, i)"><span class="ti-eraser" *ngIf="!showEraser[i]"></span><p *ngIf="showEraser[i]">Confirm</p></button></td>
-                    <td class="remove"><button (click)="deleteMakalaCategory(ctgry.id, i)"><span class="ti-trash"></span></button></td>
+                    <td><span *ngIf="!showEraser[i]">{{productcategory.name}}</span> <input *ngIf="showEraser[i]" [(ngModel)]="bidhaacategory.name" placeholder="{{productcategory.name}}"><button class="ti-close" *ngIf="showEraser[i]" (click)="alterEditMode(i)"></button></td>
+                    <td class="edit"><button (click) = "sendUpdate(productcategory.id, i)"><span class="ti-eraser" *ngIf="!showEraser[i]"></span><p *ngIf="showEraser[i]">Confirm</p></button></td>
+                    <td class="remove"><button (click)="deleteProductCategory(productcategory.id, i)"><span class="ti-trash"></span></button></td>
                 </tr>
             </tbody>
         </table>
@@ -65,5 +82,42 @@
 </div>
 
 
-  </div>
+<br><br><br><br><br><br>
+
+<h3 id="ordertitle">Orders</h3>
+<div class="block">
+    <div class="navbar navbar-inner block-header">
+        <div class="pull-right"><span class="badge badge-info">2</span>
+
+        </div>
+    
+    <div class="block-content collapse in">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="number">#</th>
+                    <th class="name">Category Name</th>
+                    <th class="edit">Phone Number</th>
+                    <th class="remove">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders; let i = index">
+                    <td class="number">{{i + 1}}</td>
+                    <td><span *ngIf="!showEraser[i]">{{order.ordertext}}</span></td>
+                    <td class="edit"><span>{{order.phonenumber}}</span></td>
+                    <td class="remove"><button (click)="deleteProductCategory(order.id, i)"><span class="ti-trash"></span></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<br>
+
+</div>
+
+
+</div>
 </main>

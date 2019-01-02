@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 import {AdminComponent } from './admin.component';
 import {AndikaMakalaComponent} from './andika-makala/andika-makala.component';
@@ -16,10 +17,9 @@ import {SignupComponent} from './signup/signup.component';
 import { BidhaaComponent } from './bidhaa/bidhaa.component';
 
 const routes: Routes = [
-  {path:'admin',component:AdminComponent,
+  {path:'admin',component:AdminComponent, canActivate: [AuthGuard],
   children:[
     {path:'', redirectTo:'andika-blog',pathMatch:'full'},
-    {path:'login', component:LoginComponent},
     {path:'signup',component:SignupComponent},
     {path:'andika-makala', component:AndikaMakalaComponent},
     {path:'andika-blog', component:BlogComponent},
@@ -31,10 +31,9 @@ const routes: Routes = [
     {path:'subscribers', component:SubscribersComponent},
     {path:'shuhuda', component:ShuhudaComponent},
     {path:'bidhaa', component:BidhaaComponent},
-  
-  
-  ]
-}
+           ]
+  },
+   {path:'login', component:LoginComponent},
 ];
 
 @NgModule({

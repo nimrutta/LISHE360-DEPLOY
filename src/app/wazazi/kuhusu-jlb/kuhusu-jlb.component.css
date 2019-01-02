@@ -73,8 +73,9 @@
  }
 
  .meetteam p {
+        
         font-size: 20px;
-        margin: 30px 0 60px 60px;
+        margin: 100px 0 80px 60px;
         
  }
 
@@ -83,7 +84,7 @@
  }
 
  figcaption {
-        color: darkgrey;
+        color: #66615b;
         font-size: 13.5px;
         text-align: center;
         width: 47%;
@@ -196,7 +197,7 @@ figure:hover figcaption {
         height: auto !important;
 }
 
-      .logo { 
+    .logo { 
         padding: 0 20px
       }
 

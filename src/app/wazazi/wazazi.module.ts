@@ -4,6 +4,9 @@ import { WazaziRoutingModule } from './wazazi-routing.module';
 import { FormsModule } from '@angular/forms'; 
 import { CeiboShare } from 'ng2-social-share';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SharedModule } from './../shared/shared.module';
+import { ResponsiveModule } from 'ng2-responsive'
+//import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 
 import { SearchService } from '../core/search.service';
 import { SubscribersService } from '../core/subscribers.service';
@@ -30,6 +33,9 @@ import { BlogSomaZaidi1Component } from './blog-soma-zaidi1/blog-soma-zaidi1.com
 import { BidhaaComponent } from './bidhaa/bidhaa.component';
 import { BidhaaCategoryComponent } from './bidhaa-category/bidhaa-category.component';
 import { UploadVideoComponent } from './upload-video/upload-video.component';
+import { NunuabidhaaComponent } from './nunuabidhaa/nunuabidhaa.component';
+import { SafePipe } from './safepipe.pipe';
+
 
 @NgModule({
   imports: [
@@ -37,6 +43,9 @@ import { UploadVideoComponent } from './upload-video/upload-video.component';
     WazaziRoutingModule,
     FormsModule,
     NgxPaginationModule,
+    SharedModule,
+    ResponsiveModule, 
+    //JwSocialButtonsModule,
   ],
  
   declarations: [WazaziComponent, 
@@ -54,18 +63,25 @@ import { UploadVideoComponent } from './upload-video/upload-video.component';
                  ShuhudaComponent, 
                  TaharifaSubscriptionComponent, 
                  TaharifaKujiungaComponent,
-                 CeiboShare,
+                // CeiboShare,
                  Makala1Component,
                  BlogSomaZaidi1Component,
                  CeiboShare,
                  BidhaaComponent,
                  BidhaaCategoryComponent,
-                 UploadVideoComponent],
+                 UploadVideoComponent,
+                 SafePipe,
+                 NunuabidhaaComponent,
+                 ],
                  
   providers: [ SearchService,
                SubscribersService,
                MakalatitlesService,
                CommentService,
-                ]
+                ],
+
+  exports: [
+              SafePipe,
+  ]
 })
 export class WazaziModule { }

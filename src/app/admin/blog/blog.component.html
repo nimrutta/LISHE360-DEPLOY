@@ -38,45 +38,59 @@
           <!--<input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf, .doc, .docx, .png, .jpeg">
           <p>sfgaszbaxcg</p> -->
 
+   
+        <input #fileInput name="audio" type="file"/>
+        <button (click)="addFile()">Add</button>  
 
-     <!--      <div class="form-group">
+
+UPLOAD2
+      <!--  <div class="form-group">
             <label for="file">Choose File</label>
             <input type="file"
-                   id="file"
+                   id="file" accept=".mp3" name="audio"
                    (change)="handleFileInput($event.target.files)">
         </div>
 
-       <button (click) = "uploadFileToActivity()"> upload </button>
+        <br><br>
+
+       <button (click) = "uploadFileToActivity()"> upload </button> -->
 Adf
 
+        <br><br>
+     <!--   <p-fileUpload name="myfile[]" url="http://api.jualishebora.gq/api/v1/images" multiple="multiple"
+accept="audio/*,image/*" auto="auto"></p-fileUpload> -->
         <br><br><br> 
-          <p-fileUpload name="myfile[]" url="http://api.jualishebora.gq/api/v1/images" multiple="multiple"
-        accept="audio/*,image/*" auto="auto"></p-fileUpload>
-sff -->
+          
+<!--sff -->
+
+
+
+
+
        <br>
           <form>
               <div class="form-group">
 
 
-            <div ng2FileDrop
+           <!-- <div ng2FileDrop
             [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
             (fileOver)="fileOverBase($event)"
             [uploader]="uploader"
             (onFileDrop)="fileselect($event)"
             class="well my-drop-zone">
            Base drop zone
-           </div>
+           </div> -->
                  <!-- <label for="single">single File</label> -->
-                  <input type="file" (change)="fileselect($event)" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />                                  
+                 <!-- <input type="file" (change)="fileselect($event)" class="form-control" name="single" ng2FileSelect [uploader]="uploader" /> -->                              
               </div> 
              <!-- <div class="form-group">
                   <label for="multiple">Multiple Files</label>
                   <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  />
               </div> -->
                         
-          </form>
+          </form> 
       </div>
-      <div class="col-xl-8">
+     <!-- <div class="col-xl-8">
           Queue length: {{ uploader?.queue?.length }}
 
           <table class="table">
@@ -141,7 +155,7 @@ sff -->
                   <span class="glyphicon glyphicon-trash"></span> Remove all
               </button>
           </div>
-      </div>
+      </div> -->
   </div>
 
 

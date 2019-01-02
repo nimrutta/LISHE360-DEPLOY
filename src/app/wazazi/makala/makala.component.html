@@ -12,7 +12,7 @@
 
     <div class="ccontainer">
       <div class="box">
-      <div *ngFor= "let a of article" >
+      <div *ngFor= "let a of article; let i = index" >
       <h3> {{a.title}}</h3>
           
           <p> {{a.body}} </p>
@@ -44,27 +44,33 @@
            class="oneimage"> 
        </div>
       <div class="clear"></div>
-       
-       <img src="../../../../assets/images/twitter1.png" alt="Fruit View"
-           class="shareicon TWITTERSHARE" ceiboShare  ="{u: repoUrl}">
+  
+       <img src="../../../../assets/images/twitter og.png" alt="Fruit View"
+           class="shareicon socialmedia" ceiboShare [twitter] ="{url: socialShareUrl[i], text: defaultSocialShareText[i]}">
+           
+       <img src="../../../../assets/images/facebook og.png" alt="Fruit View"
+           (click) = "specifyUrl(b.id)" class="shareicon socialmedia" ceiboShare  [facebook] ="{u: socialShareUrl[i]}">
+   
 
-      <div class="fb-share-button FBSHARE" data-href="http://jualishebora.gq/wazazi/blog-section" 
+      <!--<div class="fb-share-button FBSHARE" data-href="http://jualishebora.gq/wazazi/blog-section" 
       data-layout="button_count" data-size="small" data-mobile-iframe="false">
       <a class="fb-xfbml-parse-ignore" target="_blank" 
       href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjualishebora.gq%2Fwazazi%2Fblog-section&amp;src=sdkpreparse">
       <img src="../../../../assets/images/facebok1.png" alt="Fruit View"
-           class="shareicon"></a></div>
+           class="shareicon"></a></div> -->
        
-       <button class="jiungebutton" 
+      <!-- <button class="jiungebutton" 
        (click)= "togglemyId()">Jiunge na program
-       </button>
+       </button> -->
        <!--<app-taharifa-kujiunga *ngIf="thanksforjoiningprogram" (closeModal)="closeModal($event)"></app-taharifa-kujiunga>
        <app-kujiunga *ngIf="showmyId" (myevenT)="myevenT($event)" (closeButtonClicked)="closeButtonClicked($event)"></app-kujiunga>
        -->
        </div>
+       <app-taharifa-kujiunga *ngIf="thanksforjoiningprogram" (closeModal)="closeModal($event)"></app-taharifa-kujiunga>
+       <app-kujiunga *ngIf="showmyId" (myevenT)="myevenT($event)" (closeButtonClicked)="closeButtonClicked($event)"></app-kujiunga>
       </div>
     </div>
-      
+     
 
    
         <!-- <button (click)="toggleId()">Toggle</button> --> 

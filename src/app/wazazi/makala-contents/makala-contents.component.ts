@@ -88,6 +88,20 @@ export class MakalaContentsComponent implements OnInit {
     this.toggle[i] = false;
   }
 
+  performSearch(text): void { 
+  this.makalatitlesService.performSearch(text);
+  }
+   
+  endDisplay (){
+    this.display = false;
+  }
+
+  ifdisplay (){
+    this.makalatitlesService.getMakalatitles();
+    this.display = !this.display;
+  }
+
+
   closeAllAgeCategories() {
     this.toggle = [];
   }
@@ -97,18 +111,9 @@ export class MakalaContentsComponent implements OnInit {
        this.myEvent.emit(button);
   }
 
-  performSearch(text): void { 
-  this.makalatitlesService.performSearch(text);
-  }
-   
-  ifdisplay (){
-    this.makalatitlesService.getMakalatitles();
-    this.display = !this.display;
-  }
-
-  endDisplay (){
-    this.display = false;
-  }
+  // getArticle(id: number):void{
+  //   this.makalatitlesService.getArticle(id)
+  // }
 
   getMakala(id: number): void { 
       this.makala = null;
@@ -122,10 +127,6 @@ export class MakalaContentsComponent implements OnInit {
     // this.display1 = !this.display1;
   } 
   
-  getArticle(id: number):void{
-    this.makalatitlesService.getArticle(id)
-  }
-
   ngOnInit() {
     this.makalatitlesService.getMakalatitles();
     

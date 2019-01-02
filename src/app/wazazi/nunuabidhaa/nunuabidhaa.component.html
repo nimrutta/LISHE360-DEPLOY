@@ -1,0 +1,44 @@
+ <!-- Modal -->
+ <div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <button class="close" (click)="exitModal($event)">&times;</button>
+    <div class="modal-header">
+       <p>Tafadahli ingiza nammba ya simu hapa, tutakujulisha jinsi ya kupata bidhaa hii
+       </p>
+    </div>
+    <div class="modal-body"> 
+
+
+      
+      <form #kujiungaform="ngForm">
+       <input type="text" name="commenttext" class="contactfield" id="jina" value=""  [placeholder]="ordertext">
+        <!-- <div *ngIf="(jina.errors && (jina.dirty || jina.touched)) || (isInputdataMissing && jina.errors)" class="alert alert-danger" class="inputErrormessage">
+          <div [hidden]="!jina.errors.required" >
+              Tafadhari jaza Jina lako
+          </div>
+        </div> -->
+
+       
+      <input type="text" name="phonenumber" id="phone" 
+        class="contactfield" value=""  placeholder="Namba ya Simu" 
+        required [(ngModel)]="order.phonenumber" #phone="ngModel">
+        <div *ngIf="(phone.errors && (phone.dirty || phone.touched))|| (isInputdataMissing && phone.errors)" class="alert alert-danger" class="inputErrormessage">
+          <div [hidden]="!phone.errors.required" >
+              Tafadhari jaza namba yako ya simu
+          </div>
+        </div>  
+      </form>
+
+
+    </div>
+   <div class="modal-footer">
+        <a class="modallinks"><button class="sendbutton" (click)="closeModal($event)" (click)="placeAnOrder()" 
+                               [disabled]="!kujiungaform.form.valid"><button class="sendbutton"> Tuma taharifa</button> </button></a> <!--(click)="alertUser()" method not yet implemented-->
+    </div>
+  </div>
+ </div>
+ <br><br>
+ <br><br><br><br>
+ <br><br><br><br>
+

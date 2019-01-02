@@ -13,24 +13,30 @@ import { MakalaComponent } from './makala/makala.component';
 import { Makala1Component } from './makala1/makala1.component';
 import { KutuhusuComponent } from './kutuhusu/kutuhusu.component';
 import { ShuhudaComponent } from './shuhuda/shuhuda.component';
-import {SubscribeComponent} from './subscribe/subscribe.component'
-import {BidhaaComponent} from './bidhaa/bidhaa.component'
+import {SubscribeComponent} from './subscribe/subscribe.component';
+import {BidhaaComponent} from './bidhaa/bidhaa.component';
+import {BidhaaCategoryComponent} from './bidhaa-category/bidhaa-category.component';
 const routes: Routes = [
   {path:'',component:WazaziComponent,
    children:[
      {path:'', redirectTo:'blog-section', pathMatch:'full'},
      {path:'blog-section', component:BlogSectionComponent},
-     {path:'soma-zaidi/:id', component:BlogSomaZaidiComponent},
+     {path:'blog-section/:id', component:BlogSomaZaidiComponent},
      {path:'soma-zaidi1', component:BlogSomaZaidi1Component},
      {path:'kuhusu-jlb', component:KuhusuJlbComponent},
      {path:'kujiunga', component:KujiungaComponent},
      {path:'makala-content', component:MakalaContentsComponent},
      {path:'makala-navigation', component:MakalaNavigationComponent},
-     {path:'makala', component:MakalaComponent},
+     {path:'makala/:id', component:MakalaComponent},
      {path:'makala1', component:Makala1Component},
      {path:'shuhuda', component:ShuhudaComponent},
      {path:'subscribe', component:SubscribeComponent},
-     {path:'bidhaa', component:BidhaaComponent},
+     {path:'bidhaa', component:BidhaaComponent,
+     children:[
+      {path:'bidhaa-category/:id', component:BidhaaCategoryComponent},
+      {path:'bidhaa-category', component:BidhaaCategoryComponent},
+     ]}, 
+     
    ]}
    
 ];

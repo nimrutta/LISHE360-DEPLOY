@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';    //obtain absolute page path  ;never used
 import { CeiboShare } from 'ng2-social-share';
 
 
@@ -61,16 +62,21 @@ export class BlogSectionComponent implements OnInit {
    liked = false;
    searchInputStatus = true;
    name = 'Andela';
+   urlFb = 'http://jualishebora.gq';
+   shareurl = ['https://github.com'];
+   repoUrl = '';
+              
+   public defaultSocialShareText = [];
+   public socialShareUrl = [];
    
-   public repoUrl = "http://jualishebora.gq/wazazi/blog-section" ;
-   
-
    constructor(
      private blogpostService: BlogpostService,
      private searchService: SearchService,
      private datacarrierService: DatacarrierService,
      private passeventsService: PasseventsService,
-     private router: Router) { 
+     private router: Router,
+     @Inject(DOCUMENT) document: any    //never used
+     ) { 
      this.searchResults = [];
 
      this.showSearchResults = searchService.showSearchResults;
@@ -128,14 +134,14 @@ export class BlogSectionComponent implements OnInit {
    //search(term: string): void {
    //this.searchTerms.next(term);}
    
-   addLikes(){
+   addLikes(){      
      if (!this.liked) {
           this.postlikes = this.postlikes + 1;
      }
      else{
           this.postlikes = this.postlikes - 1;
      }
-          this.liked = !this.liked;
+          this.liked = !this.liked;  //REVIEW
    }
 
   ngOnDestroy() {
@@ -143,8 +149,20 @@ export class BlogSectionComponent implements OnInit {
     this._subscription.unsubscribe();
   }
 
+  socialShareParameters(item,index){
+     this.socialShareUrl[index] = document.location.href + '/' + item.id;
+     this.defaultSocialShareText[index] = item.title ;
+  }
+
   getBlogposts(): void {
-    this.blogpostService.getBlogposts().then(blogpost => {this.blogpost = blogpost; blogpost.reverse()});
+    this.blogpostService.getBlogposts().then(blogpost => {this.blogpost = blogpost;
+    blogpost.reverse(); //to display latest post top of page
+
+    this.blogpost.forEach( (item, index) => {        
+      this.socialShareParameters(item, index);
+     });
+
+    });  
   }
 
   onClick(button) { 
@@ -164,8 +182,8 @@ export class BlogSectionComponent implements OnInit {
     this.datacarrierService.setData(id);
   }
 
-   ngOnInit(): void {
-     console.log(this.name);
+  ngOnInit(): void {
+    console.log(this.name);
     this.postlikes = 45;
     this.display();
     this.getBlogposts();

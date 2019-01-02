@@ -65,23 +65,26 @@
             </p>
        </div>
     </div>
-
+    
+    <div class="blogtextcontainer">
     <p class="blogtext">
         {{g.body}}
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.sit amet,
          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amet ea
-          exercitation Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed consequuntur dolores aliquip ex aliqua </p><br>
-    <button class="somazaidi" routerLink="/wazazi/soma-zaidi" routerLinkActive="active">Soma Zaidi </button>
+          exercitation Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed consequuntur dolores aliquip ex aliqua... </p><br>
+    <button class="somazaidi" routerLink="/wazazi/blog-section/{{g.id}}" routerLinkActive="active">Soma Zaidi </button>
     <div class="clear"></div>
+    </div>
+
     <hr style="margin-top: 10px; ">    
-    <p class="postedattime">6 oktoba 2017 2315</p>
-    <div class="postedattime_ss">6 oktoba '17</div>     
-    <img src="../../../../assets/images/twitter1.png" alt="Fruit View"
+    <p class="postedattime">LISHE 360 | 6 oktoba 2017 2315</p>
+    <div class="postedattime_ss">LISHE 360 | 6 oktoba '17</div>     
+    <img src="../../../../assets/images/twitter og.png" alt="Fruit View"
            class="shareicon socialmedia">
-    <img src="../../../../assets/images/facebok1.png" alt="Fruit View"
+    <img src="../../../../assets/images/facebook og.png" alt="Fruit View"
            class="shareicon socialmedia">
-    <button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like1.png" alt="Fruit View"></button>
-    <p class="likes">{{postlikes}}</p>
+    <!--<button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like.png" alt="Fruit View"></button>
+    <p class="likes">{{postlikes}}</p> -->
     </div>   
     </div>
         
@@ -116,21 +119,29 @@
        </div>
     </div>
 
+    <div class="blogtextcontainer">
     <p class="blogtext">Ut enim ad minim veniam, ex ea commodo consequat.sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor incididunt </p><br>
-    <button class="somazaidi" routerLink="/wazazi/soma-zaidi" routerLinkActive="active" (click)= "passPostId(2335)">Soma Zaidi </button>
+         consectetur adipiscing elit, sed do eiusmod tempor incididunt ad minim veniam, ex ea commodo consequat.sit amet,
+         consectetur adipiscing elit, sed do eiusmod tempor incididunt ad minim adipiscing elit, sed do enim... </p>
+    <button class="somazaidi" routerLink="/wazazi/blog-section" routerLinkActive="active" (click)= "passPostId(2335)">Soma Zaidi </button>
     <div class="clear"></div>
-   <!-- <hr style="margin-top: 10px; "> -->
-    <p class="postedattime">6 oktoba 2017 2315</p>
-    <div class="postedattime_ss">6 oktoba '17</div>   
-    <img src="../../../../assets/images/twitter1.png" alt="Fruit View"
-           class="shareicon socialmedia" ceiboShare [twitter] ="{u: repoUrl}">
-    <img src="../../../../assets/images/facebok1.png" alt="Fruit View"
-           class="shareicon socialmedia" ceiboShare  [facebook] ="{u: repoUrl}">
+    </div>
 
-    
-    <button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like1.png" alt="Fruit View" class="socialmedia"></button>
-    <p class="likes">{{postlikes}}</p>
+   <!-- <hr style="margin-top: 10px; "> -->
+    <p class="postedattime">LISHE 360 | 6 oktoba 2017 2315</p>
+    <div class="postedattime_ss">LISHE 360 | 6 oktoba '17</div>   
+    <img src="../../../../assets/images/twitter og.png" alt="Fruit View"
+           class="shareicon socialmedia" ceiboShare [twitter] ="{url: socialShareUrl[0], text: 'aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+           eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nulla pariatur '}">
+
+    <!--<tweet url={{shareurl[0]}} text={{sharetext[0]}}></tweet>-->
+
+    <img src="../../../../assets/images/facebook og.png" alt="Fruit View"
+           class="shareicon socialmedia" ceiboShare  [facebook] ="{u: shareurl[0]}">
+    <!--<fb-like url={{shareurl[0]}}></fb-like>-->
+
+    <!--<button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like.png" alt="Fruit View" class="socialmedia"></button>
+    <p class="likes">{{postlikes}}</p> -->
     </div>
 
     <!--end of first post-->
@@ -141,7 +152,7 @@
 
 
     <!--posts fetched from database-->
-    <div *ngFor= "let b of blogpost | paginate: { itemsPerPage: 7, currentPage: p}">
+    <div *ngFor= "let b of blogpost | paginate: { itemsPerPage: 7, currentPage: p}; let i = index">
      <div class="box" id="{{b.id}}">
      
     <div class="row iquote" style="width:100%;">
@@ -161,20 +172,24 @@
        </div>
     </div>
 
-    <p class="blogtext">{{(b.body.length > 150 )? (b.body | slice :0:90)+'...':(b.body)}}</p><br>
-    <button class="somazaidi" routerLink="/wazazi/soma-zaidi/{{b.id}}" routerLinkActive="active">Soma Zaidi </button> <!-- (click)="removeSearchInput()" (click)="onClick($event)"(click)="passPostId(b.id)" (click)="getPost(b.id)" -->
+    <div class="blogtextcontainer">
+    <p class="blogtext">{{(b.body.length > 80 )? (b.body | slice :0:90)+'...':(b.body)}}</p>
+    <button class="somazaidi" routerLink="/wazazi/blog-section/{{b.id}}" routerLinkActive="active">Soma Zaidi </button> <!-- (click)="removeSearchInput()" (click)="onClick($event)"(click)="passPostId(b.id)" (click)="getPost(b.id)" -->
     <div class="clear"></div>
+    </div>
+
    <!-- <hr style="margin-top: 10px; "> -->
-    <p class="postedattime">{{b.created_at | date:'mediumDate'}}</p>
-    <div class="postedattime_ss">6 oktoba '17</div>    
-    <img src="../../../../assets/images/twitter1.png" alt="Fruit View"
-           class="shareicon socialmedia" ceiboShare [twitter] ="{u: repoUrl}">
-    <img src="../../../../assets/images/facebok1.png" alt="Fruit View"
-           (click) = "specifyUrl(b.id)" class="shareicon socialmedia" ceiboShare  [facebook] ="{u: repoUrl}">
+    <p class="postedattime">LISHE 360 | {{b.created_at | date:'mediumDate'}}</p>
+    <div class="postedattime_ss">LISHE 360 | {{b.created_at | date:'mediumDate'}}</div>    
+    <img src="../../../../assets/images/twitter og.png" alt="Fruit View"
+           class="shareicon socialmedia" ceiboShare [twitter] ="{url: socialShareUrl[i], text: defaultSocialShareText[i]}">
+           
+    <img src="../../../../assets/images/facebook og.png" alt="Fruit View"
+           (click) = "specifyUrl(b.id)" class="shareicon socialmedia" ceiboShare  [facebook] ="{u: socialShareUrl[i]}">
 
     
-    <button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like1.png" alt="Fruit View"></button>
-    <p class="likes">{{postlikes}}</p>
+    <!--<button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like.png" alt="Fruit View"></button>
+    <p class="likes">{{postlikes}}</p> -->
     </div>
     </div>
     <pagination-controls class="my-pagination" (pageChange)="p = $event"                

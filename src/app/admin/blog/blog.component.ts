@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, ViewChild  } from '@angular/core';
 import {Headers,RequestOptions, Http, Response} from '@angular/http';
 import { FileUploader,FileItem,ParsedResponseHeaders } from 'ng2-file-upload';
 
@@ -34,12 +34,11 @@ function readBase64(file): Promise<any> {
 
 export class BlogComponent implements OnInit {
 
+  @ViewChild("fileInput") fileInput; 
 
   post: any = { }
 
-  blogpost:any = {topic_id: 4}
-
- 
+  blogpost:any = {topic_id: 1}
 
   constructor(private blogpostService: BlogpostService,
               private http: Http
@@ -53,17 +52,31 @@ export class BlogComponent implements OnInit {
 
   apiEndPoint: 'http://api.jualishebora.gq/api/v1/images';
 
+ 
+  addFile(): void {
+    let fi = this.fileInput.nativeElement;
+    if (fi.files && fi.files[0]) {
+        let fileToUpload = fi.files[0];
+        this.blogpostService
+            .upload(fileToUpload)
+            .subscribe(res => {
+                console.log(res.json().data.audio_url);
+                this.blogpost.audio_url = res.json().data.audio_url;
+            });
+        }
+    }
 
 
   fileToUpload: File = null;
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
+    
    // this.uploadFileToActivity();
 }
 
 
-uploadFileToActivity() {
+  uploadFileToActivity() {
   this.blogpostService.postFile(this.fileToUpload).subscribe(data => {
     // do something, if upload success
     }, error => {
@@ -85,6 +98,7 @@ uploadFileToActivity() {
   * */
   initializeImageId(event){
     this.blogpost.image_id = event.id;
+    console.log(event.id);
   }
 
 

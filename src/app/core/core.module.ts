@@ -8,6 +8,7 @@ import { ClientsService } from './clients.service';
 import { BlogpostService } from './blogpost.service';
 import { MakalaService } from './makala.service';
 import { BidhaaService } from './bidhaa.service';
+import { AuthenticationService } from './authentication.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,8 @@ import { BidhaaService } from './bidhaa.service';
   providers: [ClientsService,
               BlogpostService,
               MakalaService,
-              BidhaaService,    ]
+              BidhaaService, 
+              AuthenticationService, 
+                 ]
 })
 export class CoreModule { }

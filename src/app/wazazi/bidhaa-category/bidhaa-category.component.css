@@ -3,18 +3,18 @@
 }
 
 .row {
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
 }
 
 .itembed {
-    height: 100%;
+    height: fit-content;
     padding: 0 15px 0 15px;
-    margin: 0 0 0 0;
+    margin: 0 0 40px 0;
 }
 
 .itemcover {
     height: 73%;
-    width: 283.73px;
+    width: 90.2%;
     background-color: rgba(0,0,0,0.2);
     position: absolute;
     z-index: 1000;
@@ -45,25 +45,72 @@
 
 .item {
    color: #888888; 
-   height: 400px;
+   height: 470px;
+   width: 100% !important;
    background-color: #ffffff;
+   border-collapse:collapse;
+   border-radius: 1%;
+   display : table;
+   box-shadow: 10px 3.5px 20px -17px #000;
+   overflow: hidden;
 }
 
 .itemimage {
     width: 100%;
     margin: 0 0 15px 0;
+    height: 282px;    /* To match image width */
  }
+
+
+#itemfooter {
+    display : table-row;
+    vertical-align : bottom;
+    height: 1px;
+}
+
+#price {
+    margin: 10px 0 5px 0;
+}
 
 .item h4, h5{
     font-family: montserrat-regular;
-    padding: 0 0 0 15px;
-    margin: 15px 0 30px 0;
+    padding: 0 15px 0 10px;
+ }
+
+.item h4{
+    color: #4b4f56;/*rgba(0,0,0,0.7);*/
+    margin: 10px 0 5px 0;
+    font-size: 17px !important;
  }
 
 .item h5{
+    color: #4b4f56;/*#000;*/
+    font-size: 15px !important;
     font-weight: 80;
-    height: 30px;
-    margin: 10px 0 20px 0;
+    height: fit-content;
+    margin: 50px 0 10px 0;
+ }
+
+.calltoaction {
+    color: rgba(101, 47, 133, 1);
+    font-weight: 550;
+}
+
+ #wasiliananasi {
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 0 0 15px
+ }
+
+ #contact {
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 15px 0 0;
+    float: right;
+ }
+
+ #contact a {
+    color: rgba(101, 47, 133, 1);
  }
 
  @media all and (max-width: 767px){
@@ -109,8 +156,24 @@
  @media all and (max-width: 500px){
 
 .itemcover {  
-    width: 215.6px;
+    width: 87%;
     height: 76%; 
+    margin: 0 2.5%;  
     }  
-      
+         
+.newitem {
+    top: 20px;
+    right: 40px;
+    }
+
+.item {
+    width: 95%;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.itemimage {
+    width: 100%;
+     }
+    
 }

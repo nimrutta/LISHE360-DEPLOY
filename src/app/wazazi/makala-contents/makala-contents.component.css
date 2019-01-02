@@ -79,12 +79,12 @@ button {
         border: none;
 }
 
-.articletittle a {
+.articlelink {
         margin: 0 0 0 20px;
         color: #000;
 }
 
-.articletittle a:hover {
+.articlelink:hover {
         color: #7d7185; 
 }
 

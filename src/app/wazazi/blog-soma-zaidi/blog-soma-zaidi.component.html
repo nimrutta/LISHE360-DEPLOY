@@ -11,6 +11,9 @@
 
   <div > 
     <div class="ccontainer">
+     <div class="placeholder" *ngIf="!Dataready">
+        <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+     </div>
      <div *ngFor= "let b of Post"> 
       <div class="box">
       <h3>{{b.title}}</h3>
@@ -63,6 +66,9 @@
             Your browser does not support HTML5 video.
         </video> -->
 
+        
+
+       
         <iframe 
         [src]="domSanitizer.bypassSecurityTrustResourceUrl(b.video_url)" *ngIf = 'b.video_url != null'>
         </iframe>
@@ -73,28 +79,41 @@
 
         <div class="audiocontainer">
 
-          <audio controls>
+          <!--<audio controls>
             <source src="horse.ogg" type="audio/ogg">
             <source src="../../../../assets/John Denver - Take Me Home, Country Roads (Audio).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio> -->
+
+          <audio controls>
+            <source [attr.src]="b.audio_url | safepipe" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
           <p>Unaweza Kusikiliza maka hii hapa</p>
 
           <div class="clear"></div>
        
-          <img src="../../../../assets/images/twitter.png" alt="Fruit View"
-              class="shareicon socialmedia" ceiboShare  ="{u: repoUrl}">
-   
-         <div class="fb-share-button" data-href="http://jualishebora.gq/wazazi/blog-section" 
+          <img src="../../../../assets/images/twitter og.png" alt="Fruit View"
+           class="shareicon socialmedia" ceiboShare [twitter] ="{url: socialShareUrl, text: defaultSocialShareText}">
+         
+          <img src="../../../../assets/images/facebook og.png" alt="Fruit View"
+           (click) = "specifyUrl(b.id)" class="shareicon socialmedia" ceiboShare  [facebook] ="{u: socialShareUrl}">
+
+         <!--<div class="fb-share-button" data-href="http://jualishebora.gq/wazazi/blog-section" 
          data-layout="button_count" data-size="small" data-mobile-iframe="false">
          <a class="fb-xfbml-parse-ignore" target="_blank" 
          href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjualishebora.gq%2Fwazazi%2Fblog-section&amp;src=sdkpreparse">
          <img src="../../../../assets/images/facebok.png" alt="Fruit View"
-              class="shareicon socialmedia"></a></div>
+              class="shareicon socialmedia"></a></div> -->
+
+         
+        <!-- <button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like1.png" alt="Fruit View"></button>
+         <p class="likes">{{postlikes}}</p> -->
+
           
-          <button class="jiungebutton" 
+        <!--  <button class="jiungebutton" 
           (click)= "togglemyId()">Jiunge na program
-          </button>  
+          </button> --> 
 
         </div>  
         
@@ -108,7 +127,7 @@
 
    
         <!-- <button (click)="toggleId()">Toggle</button> --> 
-
+ <div *ngIf="Dataready">
   <div class="cbox">
     <div id="respond">
 
@@ -184,6 +203,8 @@
       </div>
     </div>
   </div>
+
+ </div> <!--End of If Data Ready-->
       
       <br><br><br><br>
       <br><br><br><br>

@@ -4,7 +4,7 @@
       <div class="row menurow">
           <div class="col-sm-2 logorow">
          
-          <div class="brand"><img src="../../../assets/images/pp.jpg" class="icon"></div>
+          <div class="brand"><img src="../../../assets/images/LISHE 360 2.png" class="icon"><p class="brandname">LISHE 360</p></div>
           </div>
          
           <div class="ssnavbar ">   <!-- for small screen menu -->
@@ -26,13 +26,13 @@
                 <ul>
                     <div class="collapse navbar-collapse"> 
                         <li><a routerLink="blog-section" routerLinkActive="active" (click) = "returnsearch(); returnSearchInput(); showarticle.endDisplay()" class="Mwanzo" >Mwanzo</a></li>
-                        <li><a routerLink="bidhaa" routerLinkActive="active" (click) = "omitsearch(); showarticle.endDisplay()">Bidhaa</a></li>
-                        <li><a routerLink="kuhusu-jlb" routerLinkActive="active" (click) = "omitsearch(); showarticle.endDisplay()">Kuhusu JLB</a></li>
+                        <li><a routerLink="bidhaa" routerLinkActive="active" (click) = "omitsearch(); showarticle.endDisplay(); loadProducts()">Bidhaa</a></li>
+                        <li><a routerLink="kuhusu-jlb" routerLinkActive="active" (click) = "omitsearch(); showarticle.endDisplay()">Kuhusu lishe360</a></li>
                         <li><a routerLink="shuhuda" routerLinkActive="active" (click) = "omitsearch(); showarticle.endDisplay()">Shuhuda</a></li>  
-                        <li class="calltoactionli"><div class="calltoaction"><button (click)= "togglemyOd()">Jiunge na Program JLB</button></div></li>
+                        <li class="calltoactionli"><div class="calltoaction"><button (click)= "togglemyOd()">Program LISHE 360</button></div></li>
                       
                        
-                   </div>
+                    </div>
                 </ul>
        </div>
          
@@ -47,17 +47,17 @@
        <div class="ssmenu" *ngIf="isIn" [@flyInOut]="'in'"> 
         <ul class="menuitem_SS  navbar-nav"> 
           <li><i class="glyphicon glyphicon-home"></i><a routerLink="blog-section" routerLinkActive="active" (click) = "returnsearch(); returnSearchInput(); toggleState()" class="Mwanzo" >Mwanzo</a></li>  
-          <li><i><img src="./../../../assets/images/pacifier.png"></i><a routerLink="bidhaa" routerLinkActive="active" (click) = "omitsearch(); toggleState()">Bidhaa</a></li>
-          <li><i><img src="./../../../assets/images/group.png"></i><a routerLink="kuhusu-jlb" routerLinkActive="active" (click) = "omitsearch(); toggleState()">Kuhusu JLB</a></li> 
-          <li><i><img src="./../../../assets/images/rating.png"></i><a routerLink="shuhuda" (click) = "omitsearch(); toggleState()">Shuhuda</a></li> 
-          <hr>
-          <li><i><img src="./../../../assets/images/article.png"></i><a (click)="showMakalaTitles()">Soma Makala</a></li>
-                   <!-- <button class="somamakalabtn_ss" (click)="showarticle.ifdisplay()"> Soma Makala </button>-->
-         
-         
-
+          <li><i><img src="./../../../assets/images/cart-of-ecommerce.png"></i><a routerLink="bidhaa" routerLinkActive="active" (click) = "omitsearch(); toggleState();loadProducts()">Bidhaa</a></li>
+          <li><i><img src="./../../../assets/images/about-us.png"></i><a routerLink="kuhusu-jlb" routerLinkActive="active" (click) = "omitsearch(); toggleState()">Kuhusu lishe360</a></li> 
+          <li><i><img src="./../../../assets/images/testimonials.png"></i><a routerLink="shuhuda" (click) = "omitsearch(); toggleState()">Shuhuda</a></li> 
           
-            <div *ngIf="showmakalaTitles">
+          <hr>
+
+
+          <li id="mapishiyavyakula"><i><img src="./../../../assets/images/baby-food.png"></i><a (click)="showMakalaTitles()">Mapishi ya vyakula</a></li>
+                   <!-- <button class="somamakalabtn_ss" (click)="showarticle.ifdisplay()"> Soma Makala </button>-->
+                   
+            <div *ngIf="showmakalaTitlesSS">
              <div *ngFor= "let c of category; let i = index">       <!--for each age category -->
                 <a>
                  <li class="ss_makalatitle" (click)="getMakala(c.id)" (click)="displayThisItem(i)">{{c.category_name}} </li> 
@@ -68,9 +68,9 @@
                  <div *ngFor= "let m of makala" class="ss_makalaitems">
                    
                      <button class="ss_makalaitem" 
-                     (click)="getArticle(m.id)" (click)="closeAllAgeCategories()" 
+                     (click)="omitsearch()" (click)="closeAllAgeCategories()" 
                       (click)="toggleState()">
-                     <a routerLink="makala"> {{m.title}} </a>        
+                     <a routerLink="/wazazi/makala/{{m.id}}"> {{m.title}} </a>        
                      </button>
                    
                  </div>
@@ -81,7 +81,7 @@
      
 
 
-          <p class="sidemenu-badge">JUA LISHE BORA</p>        
+          <p class="sidemenu-badge">LISHE 360</p>        
         </ul>
         <app-makala-contents #showarticle (myEvent)="myEvent($event)"></app-makala-contents>
        </div>    
@@ -94,7 +94,7 @@
  
  
  <div class="row showposts">
-  <div class="row ss_search_row"><div class="col-xs-2"><button (click)= "showSearchbox()" class="ss"><!--<i class="glyphicon glyphicon-search ss-search" *ngIf="showsearch"  ></i>--></button></div> 
+  <div class="row ss_search_row" *ngIf="showsearch"><div class="col-xs-2"><button (click)= "showSearchbox()" class="ss"><!--<i class="glyphicon glyphicon-search ss-search" *ngIf="showsearch"  ></i>--></button></div> 
   
    <div class="col-xs-10 column2">
    <input type="search" class="ss-searchbox form-control" name="tittle" #searchTerm  placeholder="Tafuta"  (keyup)="keypressed($event)">
@@ -123,19 +123,22 @@
 
         <div class="searchsection row">
         <div class="search" >
+            <div id="ommitedinss">
             <input type="search" class="searchbox" name="tittle" #searchTerm  placeholder="Tafuta" *ngIf="showSearchInput" (keyup)="keypressed($event)">
             <button (click)="performSearch(searchTerm)" class="Tafutabutton" *ngIf="showSearchInput"><i class="glyphicon glyphicon-search"></i></button>
             <br *ngIf="showSearchInput">
-            <hr>
-
-            <button class="Rudimwanzobutton" *ngIf="!showSearchInput"  (click) = "rudiMwanzo()"><i class="glyphicon glyphicon-arrow-left"></i>Rudi Mwanzo</button>
+            <!--<hr>-->
+            <br><br><br>
+            <button class="Rudimwanzobutton" *ngIf="!showSearchInput"  (click) = "rudiMwanzo()">Rudi Mwanzo</button>  <!--<i class="glyphicon glyphicon-arrow-left"></i>-->
             
-            <a><button class="Makalabutton" (click)="showarticle.ifdisplay()"><p>Mapishi ya vyakula</p><i class="glyphicon glyphicon-list-alt"></i></button></a>
+            <a><button class="Makalabutton" (click)="showarticle.ifdisplay()"><p>Mapishi ya vyakula</p><img src="./../../../assets/images/baby-food.png"></button></a> <!--<i class="glyphicon glyphicon-list-alt"></i>-->
             <p class="makalamaelekezo">Bonyeza kitufe hiki kupata makala zenye maelekezo ya uandaaji wa vyakula vya watoto wa umri mbalimbali</p>
-            <br>
-            <hr>
-            <h4 class="bidhaasectiontitle">Bidhaa Mpya</h4>
+            <br>  
+            </div>
 
+            <hr class="horizontalline">
+            <h4 class="bidhaasectiontitle">Bidhaa Mpya</h4>
+            
            <!--  
             <div class="row anitem" *ngFor = "let product of bidhaa">
               <div *ngIf = {{product.status}}>
@@ -159,10 +162,13 @@
 
                  <div class="col-sm-8">
                    <p class="itemdescription">
-                     Kifaa cha kumlishia mtoto
+                     Pacifier
                    </p> 
                    <p class="itemprice">Tsh 7000</p> 
                  </div>
+                 <p id="contact" *isMobile ><a href="https://api.whatsapp.com/send?phone=255688192446&text=Nahitaji%20Pacifier" > Nunua Sasa</a></p>
+                 <p id="contact" *isDesktop ><a (click) = "showNunuaBidhaaForm(i)" > Nunua Sasa</a></p>
+ 
              </div>
 
              <div class="row anitem">
@@ -176,11 +182,35 @@
                   </p> 
                   <p class="itemprice">Tsh 7000</p> 
                 </div>
+                <p id="contact" *isMobile ><a href="https://api.whatsapp.com/send?phone=255688192446&text=Nahitaji%20Dishi la chakula cha mtoto" > Nunua Sasa</a></p>
+                <p id="contact" *isDesktop ><a (click) = "showNunuaBidhaaForm(i)" > Nunua Sasa</a></p>
+ 
             </div>
+
+          <div *ngFor = "let bidhaaMpya of bidhaa; let i = index">
+
+            <div class="row anitem">
+                    <div class="col-sm-4">
+                        <img src={{bidhaaMpya.image.url}} class="itemimage">
+                    </div>
+    
+                    <div class="col-sm-8">
+                      <p class="itemdescription">
+                        {{bidhaaMpya.name}}
+                      </p> 
+                      <p class="itemprice">{{bidhaaMpya.price}}</p> 
+                    </div>
+                    <p id="contact" *isMobile ><a [href]="whatsapplink[i]" > Nunua Sasa</a></p>
+                    <p id="contact" *isDesktop ><a (click) = "showNunuaBidhaaForm(i)" > Nunua Sasa</a></p>
+              </div>
+              
+
+          </div>
+
         </div>
         </div> 
         </div>
-
+        <app-nunuabidhaa class="nunuabidhaaform" *ngIf="isNunuaBidhaaForm" (myevenT)="myevenTWazazi($event)" (closeButtonClicked)="closeButtonClickedWazazi($event)" [ordertext]='orderText'></app-nunuabidhaa> 
         <app-makala-contents class="makalatitles" #showarticle (myEvent)="myEvent($event)"></app-makala-contents> 
      
 

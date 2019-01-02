@@ -123,28 +123,46 @@ ibox {
         transition: all 1s ease;
 }
 
+.blogtextcontainer {
+        padding: 0 0 0 20px;
+        width: fit-content;
+        height: fit-content;
+        margin-bottom: 70px;
+}
+
 .blogtext {
         font-family: Montserrat-Regular;
-        padding: 0 10px 0 20px;
-        width: 100%;
+        color: #4b4f56;
+        line-height: 1.8em;
+        font-weight: 300;
+        padding: 0 10px 0 0;
+        width: fit-content;
+        display: inline;        /*to place blog text and read more link on same line */
         overflow-wrap: break-word;
 }
 
 .somazaidi {
         font-family: Montserrat-Regular;
-        color : #000;
+        color : rgba(101, 47, 133, 1);
+        font-size: 14px;
         height: 20px;
         width: auto;
         margin: 0 0 20px 0; 
-        float: right;
+       /* float: right; */
         padding: 0 20px 0 0;
+        display: inline-block;     /*to place blog text and read more link on same line */
         background: none;
         border: none;
+ }
+
+ .somazaidi:hover {
+         text-decoration: underline;
  }
  
  .postedattime {
         font-family: Montserrat-Regular;
-        color: rgba(90,76,60,0.8);
+        color: rgba(90,76,60,0.6);
+        font-size: 13px;
         float: left;
         margin: 0 0 0 20px;
  }
@@ -259,7 +277,7 @@ p{
 
 @media all and (max-width: 767px){
 .ccontainer {
-        padding-top:15px;
+        padding:15px 0 0 0;
  }
 
 .box {
@@ -300,6 +318,10 @@ p{
         font-size: 17px;
 }
 
+.blogtextcontainer {
+        padding: 0 1.3vw;
+}
+
 .blogtext {
         margin-top: 7px;
         overflow-wrap: break-word;
@@ -311,10 +333,10 @@ p{
 
 .postedattime_ss {
         font-size: 12px;
-        color: #66a8a6;
+        color: rgba(90,76,60,0.6);
         margin: 0 0 0 10px;
         display: inline-block !important;
-        width: 80px;
+        width: fit-content;
  }
 
 .shareicon {
