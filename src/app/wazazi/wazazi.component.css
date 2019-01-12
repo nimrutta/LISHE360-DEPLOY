@@ -33,14 +33,16 @@
   .icon {
       height: 400px;
       width: 300px;
-      margin: auto 6% auto 8%;
+      margin: auto 4% auto 0%;
       display: inline-block;
      
    }
 
    .brandname {
-        color: #949494;
-        font-size: 18px;
+        /*color: #949494;*/
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 19px;
+        font-weight: 700;
         margin: 43px 5px 0 0;    /*margin top to match margin top menuitems2*/
         float: right;
     }
@@ -77,7 +79,7 @@
 
   .menurow {
       width: 100%;
-      margin: 0 0 15px 0;
+      margin: 15px 0 40px 0;
   }
 
   .menuitems2 {
@@ -117,7 +119,11 @@
       }  
   
     nav ul li a {
-          color: #949494;
+          /*color: #949494;*/
+          color: rgba(0, 0, 0, 0.9);
+          font-size: 16px;
+          letter-spacing: 2px;
+          font-weight: 500;
           padding-top: 4px;
           height: 20px;
     }
@@ -129,7 +135,7 @@
 
   
     .calltoactionli {
-       margin: 0 0 0 120px !important; 
+       margin: 0 0 0 35px !important; 
     }
 
     .calltoaction {
@@ -144,7 +150,7 @@
     .calltoaction button {
         color: #fff;
         font-size: 14px;
-        background-color: rgba(70, 26, 66, .8); /*rgba(40, 54, 85, 1)*/
+        background-color: rgba(70, 26, 66, 0.9); /*rgba(40, 54, 85, 1)*/
         padding: 7px 9px;
         margin: 0 0 0 0;
         border: none;
@@ -158,7 +164,7 @@
 
   .menuitems {
       
-      background-color: rgba(70, 26, 66, .8);
+      background-color: rgba(70, 26, 66, 0.9);
       width: 100%;
       height: 9px;
       
@@ -166,7 +172,7 @@
       border-bottom-left-radius: 4px;
       margin-right: 0 !important;
       margin-top: 5px;
-      box-shadow: 0px 5.5px 5px -4px #000;
+      box-shadow: 0px 4.5px 4px -4px #000;
   }
   .nav { 
       margin-right: 2%;
@@ -216,12 +222,12 @@
  }
 
 .Makalabutton {
-        font-family: Montserrat-Regular;
+        /*font-family: Montserrat-Regular;*/
         font-size: 15px;
         color: #fff;
         height: 60px;
         width: 200px;
-        background-color: rgba(70, 26, 66, .8);
+        background-color: rgba(70, 26, 66, 1);
         padding: 7px 0 0 0;
         margin: 20px 0 0 11%;
         border: none;
@@ -259,8 +265,8 @@ a > .Makalabutton  :hover {
 }
 
 .search {
-        background-color: #fff;
-        border-radius: 7px;
+        background-color: rgba(255,255,255,0.3);
+        border-radius: 15px;
         margin: 0 0 0 4px;
         padding: 35px 15px;
         height: fit-content;
@@ -291,7 +297,8 @@ a > .Makalabutton  :hover {
 .makalamaelekezo {
         color: rgba(0, 0, 0, 0.8);
         font-size: 13px;
-        font-family: Montserrat;
+        /*font-family: Montserrat;*/
+        font-family: 'Muli', Arial, sans-serif;
         width: 77%;
         margin: 10px 0 0 11%;
         text-align: justify;
@@ -315,7 +322,7 @@ a > .Makalabutton  :hover {
 
 input::placeholder {
        font-family: Montserrat-Regular;
-       color: rgba(0, 0, 0, 0.6);
+       color: rgba(0, 0, 0, 0.8);
   /*rgba(255,182,193, 0.4); */}
 
 .Tafutabutton {
@@ -499,7 +506,7 @@ nav {   width: 100%;
 
 
  .calltoaction button {
-        color: rgba(70, 26, 66, .8);
+        color: rgba(70, 26, 66, .9);
         font-size: 14px;
         background: none;
         background-color: none;
@@ -614,7 +621,7 @@ input::placeholder {
 
 
 .HM {
-        background-color: rgba(70, 26, 66, .8);
+        background-color: rgba(70, 26, 66, 1);
         border: none;
         padding: 8px 6px;
         margin: 3px 15px 4px 22px;
@@ -622,7 +629,7 @@ input::placeholder {
 }
 
 .HM:focus {
-        background-color: rgba(70, 26, 66, .8) !important;      
+        background-color: rgba(70, 26, 66, 1) !important;      
 }
 
 .HM span {
@@ -636,7 +643,7 @@ input::placeholder {
 }
 
 .menuitems {
-        background-color: rgba(70, 26, 66, .9);          
+        background-color: rgba(70, 26, 66, 1);          
         margin: 2px 0 0 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
@@ -649,7 +656,7 @@ input::placeholder {
 
 .ssmenu {
         width: 75%;
-        height: 400px;
+        height: 77vh;
         padding: 0;
         margin: 0 0 0 0;
         border: none;
@@ -714,6 +721,7 @@ input::placeholder {
 
 nav ul li a {                                    /*CHANGE*/
         color: #fff !important;
+        letter-spacing: 0px;
   }
 
 .ss_makalatitle {                               /*CHANGE*/

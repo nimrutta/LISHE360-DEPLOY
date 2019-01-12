@@ -47,7 +47,7 @@
     </div> -->
         
     <div *ngIf = 'showSearchResults'>
-    <div *ngFor= "let g of searchResults" class="box">
+    <div *ngFor= "let g of searchResults; let i = index" class="box">
      
     <div class="row iquote" style="width:100%;">
        <div class="ibox">
@@ -57,16 +57,19 @@
 
        </div>
 
-       <div class="quote">
+       <!--<div class="quote">
             <p>
                <strong><span style="font-size:30px;">"</span> {{g.title}}
                <span style="font-size:30px;">"</span></strong>
 
             </p>
-       </div>
+       </div> -->
     </div>
     
     <div class="blogtextcontainer">
+    <strong> {{g.title}}
+           
+    </strong>
     <p class="blogtext">
         {{g.body}}
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.sit amet,
@@ -80,9 +83,10 @@
     <p class="postedattime">LISHE 360 | 6 oktoba 2017 2315</p>
     <div class="postedattime_ss">LISHE 360 | 6 oktoba '17</div>     
     <img src="../../../../assets/images/twitter og.png" alt="Fruit View"
-           class="shareicon socialmedia">
+           class="shareicon socialmedia" ceiboShare [twitter] ="{url: srSocialShareUrl[i], text: srDefaultSocialShareText[i]}">
+           
     <img src="../../../../assets/images/facebook og.png" alt="Fruit View"
-           class="shareicon socialmedia">
+           (click) = "specifyUrl(b.id)" class="shareicon socialmedia" ceiboShare  [facebook] ="{u: srSocialShareUrl[i]}">
     <!--<button class="likesbutton" (click) = "addLikes()"><img src="../../../../assets/images/like.png" alt="Fruit View"></button>
     <p class="likes">{{postlikes}}</p> -->
     </div>   
@@ -108,21 +112,22 @@
 
        
 
-       <div class="quote">
+       <!--<div class="quote">
             <p>
                <strong> aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nulla pariatur  
-               </strong>
+               </strong> 
 
             </p>
-       </div>
+       </div>-->
        </div>
     </div>
 
     <div class="blogtextcontainer">
-    <p class="blogtext">Ut enim ad minim veniam, ex ea commodo consequat.sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor incididunt ad minim veniam, ex ea commodo consequat.sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor incididunt ad minim adipiscing elit, sed do enim... </p>
+    <strong> Umewahi kumpatia mtoto wako Brown rice? Kama bado basi leo tunakupatia dondoo muhimu katika kuandaa Brown rice.
+    </strong> 
+    <p class="blogtext">Brown rice ni mgumu hivyo huchukua muda mrefu kuiva, hivyo tunashauri kuloweka Brown rice kwa saa 12 kabla ya kupika kupunguza muda wa kupika. 
+                        Kuloweka Brown rice pia kuna faida kiafya kwani husaidia virutubisho vilivyomo kufyonzwa vizuri na mwili... </p>
     <button class="somazaidi" routerLink="/wazazi/blog-section" routerLinkActive="active" (click)= "passPostId(2335)">Soma Zaidi </button>
     <div class="clear"></div>
     </div>
@@ -159,20 +164,26 @@
        <div class="ibox">
           
            <img src="{{b.image.url}}" alt="Fruit View"
-           class="oneimage">
+           class="oneimage" *ngIf = 'b.video_url === null'>
 
-       <div class="quote">
+           <iframe 
+            [src]="domSanitizer.bypassSecurityTrustResourceUrl(b.video_url)" *ngIf = 'b.video_url != null'>
+           </iframe>
+
+       <!--<div class="quote">
             <p>
               <strong>{{b.title}} 
                </strong>
 
             </p>
-       </div>
+       </div> -->
        <div class="clear"></div>
        </div>
     </div>
 
     <div class="blogtextcontainer">
+    <strong>{{b.title}} 
+    </strong>
     <p class="blogtext">{{(b.body.length > 80 )? (b.body | slice :0:90)+'...':(b.body)}}</p>
     <button class="somazaidi" routerLink="/wazazi/blog-section/{{b.id}}" routerLinkActive="active">Soma Zaidi </button> <!-- (click)="removeSearchInput()" (click)="onClick($event)"(click)="passPostId(b.id)" (click)="getPost(b.id)" -->
     <div class="clear"></div>

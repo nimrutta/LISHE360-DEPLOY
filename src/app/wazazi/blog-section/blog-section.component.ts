@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';    //obtain absolute page path  ;never used
+import { DomSanitizer} from '@angular/platform-browser';
 import { CeiboShare } from 'ng2-social-share';
 
 
@@ -68,12 +69,15 @@ export class BlogSectionComponent implements OnInit {
               
    public defaultSocialShareText = [];
    public socialShareUrl = [];
+   public srDefaultSocialShareText = [];
+   public srSocialShareUrl = [];
    
    constructor(
      private blogpostService: BlogpostService,
      private searchService: SearchService,
      private datacarrierService: DatacarrierService,
      private passeventsService: PasseventsService,
+     public domSanitizer : DomSanitizer,
      private router: Router,
      @Inject(DOCUMENT) document: any    //never used
      ) { 
@@ -94,6 +98,11 @@ export class BlogSectionComponent implements OnInit {
      else {
        this.noResultsFound = false;
      }
+ 
+     value.forEach( (item, index) => {        //create an array of article titles and share link
+      this.searchResultSocialShareParameters(item, index);
+     });
+
      console.log(this.searchResults.length);
    });
 
@@ -153,6 +162,11 @@ export class BlogSectionComponent implements OnInit {
      this.socialShareUrl[index] = document.location.href + '/' + item.id;
      this.defaultSocialShareText[index] = item.title ;
   }
+
+  searchResultSocialShareParameters(item,index){
+    this.srSocialShareUrl[index] = document.location.href + '/' + item.id;
+    this.srDefaultSocialShareText[index] = item.title ;
+ }
 
   getBlogposts(): void {
     this.blogpostService.getBlogposts().then(blogpost => {this.blogpost = blogpost;

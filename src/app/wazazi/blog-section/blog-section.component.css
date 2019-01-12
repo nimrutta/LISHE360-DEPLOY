@@ -72,6 +72,19 @@ ibox {
         border-top-left-radius: 4px;
 }
 
+iframe {
+        height: 520px;
+        float: left; 
+        width: 100%; 
+        margin-left: 0;
+        margin-bottom: 17px;
+        position: relative;
+        top: 0 !important;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+}
+
+
 .quote {
         font-size: 19px;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -124,17 +137,27 @@ ibox {
 }
 
 .blogtextcontainer {
-        padding: 0 0 0 20px;
+        padding: 0 10px 0 20px;
         width: fit-content;
         height: fit-content;
-        margin-bottom: 70px;
+        margin-bottom: 5vh;                        
+}
+
+.blogtextcontainer strong{
+        /*color: #333 !important;*/
+        color: #292929;
+        font-size: 16px;
+        font-weight: 600 !important;
+        letter-spacing: 1px;
 }
 
 .blogtext {
-        font-family: Montserrat-Regular;
-        color: #4b4f56;
-        line-height: 1.8em;
-        font-weight: 300;
+        font-family: 'Muli', Arial, sans-serif;
+        /*color: #4b4f56;*/
+        color: #292929;
+        line-height: 1.9em;
+        font-weight: 400;
+        letter-spacing: 1px;
         padding: 0 10px 0 0;
         width: fit-content;
         display: inline;        /*to place blog text and read more link on same line */
@@ -143,7 +166,8 @@ ibox {
 
 .somazaidi {
         font-family: Montserrat-Regular;
-        color : rgba(101, 47, 133, 1);
+        /* color : rgba(101, 47, 133, 0.9);*/
+        color: #550055;
         font-size: 14px;
         height: 20px;
         width: auto;
@@ -225,7 +249,13 @@ iqoute {
         height: 300px;
         width: 100%; 
         margin:0px;
-}  
+} 
+
+iframe {
+        height: 300px;
+        width: 100%; 
+        margin:0px;
+}
 
 .twoimage {
         height: 300px;
@@ -294,6 +324,12 @@ p{
         margin:0px;
 } 
 
+iframe {
+        height: 100%;
+        width: 100%; 
+        margin:0px;
+}
+
 .quote {
         height: 100%;
         width: 40%;
@@ -319,12 +355,22 @@ p{
 }
 
 .blogtextcontainer {
-        padding: 0 1.3vw;
+        padding: 1vw 2.5vw;
+        margin-bottom: 3vh;
+}
+
+.blogtextcontainer strong {
+        font-size: 15px;
 }
 
 .blogtext {
+        font-size: 15px;
         margin-top: 7px;
         overflow-wrap: break-word;
+}
+
+.somazaidi {
+        font-size: 14px;
 }
 
 .postedattime {

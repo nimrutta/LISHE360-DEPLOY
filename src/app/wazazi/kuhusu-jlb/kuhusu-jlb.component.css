@@ -46,9 +46,10 @@
  }
 
  .logo p {
-        color: #C73289;
+        color: #fff;
         font-size: 21px;
         font-family: kgshakeitoff;
+        font-weight: 600;
  }
 
  .description  {

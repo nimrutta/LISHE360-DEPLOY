@@ -33,7 +33,9 @@
 .makundiyabidhaa h3 {
     margin: 0 0 20px 0;
     padding: 20px 0 10px 0;
-    font-family: montserrat-bold;
+    font-family: 'Muli',Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #050709;
 }
 
 /*.active {
@@ -50,11 +52,12 @@
   }
 
 .makundiyabidhaa li {
-    color: #4b4f56; /*#949494*/
+    /*color: #4b4f56;*/ /*#949494*/
+    color: #050709;
     font-size: 15px;
     line-height: 1.8;
-    font-family: montserrat-regular;
-    font-weight:80;
+    font-family: 'Muli',Arial, Helvetica, sans-serif;
+    font-weight:400;
     margin: 0 0 13px 0;
 }
 

@@ -7,6 +7,14 @@ input:focus {outline: none}
     src: url('assets/kimberly-geswein/KGShakeitOff.ttf');
 }
 
+@import "./styles/font.scss";
+@font-face {
+         font-family: 'CooperBlackRegular';
+         src:url('./font/Cooper\ Black\ Regular.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+
 /*
 .index1 {
   width: 100%;

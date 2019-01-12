@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../core/authentication.service';
+import { DatacarrierService } from './../../core/datacarrier.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-  ) { }
+        public datacarrierService: DatacarrierService,
+  ) {
+    this.datacarrierService.setLandingPageStatus(false); // to remove landing page from view
+   }
 
   ngOnInit() {
         // reset login status
