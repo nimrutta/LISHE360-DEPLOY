@@ -16,10 +16,14 @@ import { ShuhudaComponent } from './shuhuda/shuhuda.component';
 import {SubscribeComponent} from './subscribe/subscribe.component';
 import {BidhaaComponent} from './bidhaa/bidhaa.component';
 import {BidhaaCategoryComponent} from './bidhaa-category/bidhaa-category.component';
+import {LandingpageComponent} from './landingpage/landingpage.component';
 const routes: Routes = [
+  
+  {path:'', component:LandingpageComponent},
   {path:'',component:WazaziComponent,
    children:[
      {path:'', redirectTo:'blog-section', pathMatch:'full'},
+     {path:'landingpage', component:LandingpageComponent},
      {path:'blog-section', component:BlogSectionComponent},
      {path:'blog-section/:id', component:BlogSomaZaidiComponent},
      {path:'soma-zaidi1', component:BlogSomaZaidi1Component},

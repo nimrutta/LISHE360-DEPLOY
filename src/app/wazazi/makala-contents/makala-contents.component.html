@@ -9,10 +9,10 @@
                <div  *ngIf= "toggle[i]" class="articletitles">            <!--for each specific article's title-->
                 <div *ngFor= "let m of makala">
                   
-                   <a routerLink="/wazazi/makala/{{m.id}}" (click)="ifdisplay (); closeAllAgeCategories()" 
+                   <a routerLink="/wazazi/makala/{{m.id}}" (click)="getArticle(m.id)" (click)="ifdisplay (); closeAllAgeCategories()" 
                     class="articlelink">
                     <button class="articletittle" (click)="onClick($event)">
-                    <!--<i class="glyphicon glyphicon-triangle-right"></i>  (click)="getArticle(m.id)"-->
+                    <!--<i class="glyphicon glyphicon-triangle-right"></i>  "-->
                      {{m.title}}      
                     </button>
                    </a>   

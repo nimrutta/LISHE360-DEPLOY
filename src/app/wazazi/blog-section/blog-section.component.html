@@ -125,7 +125,7 @@
 
     <div class="blogtextcontainer">
     <strong> Umewahi kumpatia mtoto wako Brown rice? Kama bado basi leo tunakupatia dondoo muhimu katika kuandaa Brown rice.
-    </strong> 
+    </strong><br>
     <p class="blogtext">Brown rice ni mgumu hivyo huchukua muda mrefu kuiva, hivyo tunashauri kuloweka Brown rice kwa saa 12 kabla ya kupika kupunguza muda wa kupika. 
                         Kuloweka Brown rice pia kuna faida kiafya kwani husaidia virutubisho vilivyomo kufyonzwa vizuri na mwili... </p>
     <button class="somazaidi" routerLink="/wazazi/blog-section" routerLinkActive="active" (click)= "passPostId(2335)">Soma Zaidi </button>
@@ -157,7 +157,7 @@
 
 
     <!--posts fetched from database-->
-    <div *ngFor= "let b of blogpost | paginate: { itemsPerPage: 7, currentPage: p}; let i = index">
+    <div *ngFor= "let b of blogpost ; let i = index"> <!--| paginate: { itemsPerPage: 7, currentPage: p} -->
      <div class="box" id="{{b.id}}">
      
     <div class="row iquote" style="width:100%;">
@@ -183,7 +183,7 @@
 
     <div class="blogtextcontainer">
     <strong>{{b.title}} 
-    </strong>
+    </strong><br>
     <p class="blogtext">{{(b.body.length > 80 )? (b.body | slice :0:90)+'...':(b.body)}}</p>
     <button class="somazaidi" routerLink="/wazazi/blog-section/{{b.id}}" routerLinkActive="active">Soma Zaidi </button> <!-- (click)="removeSearchInput()" (click)="onClick($event)"(click)="passPostId(b.id)" (click)="getPost(b.id)" -->
     <div class="clear"></div>
@@ -203,12 +203,13 @@
     <p class="likes">{{postlikes}}</p> -->
     </div>
     </div>
-    <pagination-controls class="my-pagination" (pageChange)="p = $event"                
+    <!--<pagination-controls class="my-pagination" (pageChange)="p = $event"                
                                                 previousLabel="Kurasa iliyopita"
                                                 nextLabel="Nyingine"
     >
 
-    </pagination-controls>
+    </pagination-controls> -->
+    
     <!--end of posts fetched from database-->   
 
 

@@ -31,7 +31,7 @@
         width: 100%;
         padding:0 0 40px 0px;
         background-color: #fff;
-        margin-bottom: 50px;
+        margin-bottom: 8vh;
         border-radius: 4px;
         box-shadow: 1px 0.5px 24px -9px #000; 
 }
@@ -65,7 +65,7 @@ ibox {
         float: left; 
         width: 100%; 
         margin-left: 0;
-        margin-bottom: 17px;
+        margin-bottom: 5px;
         position: relative;
         top: 0 !important;
         border-top-right-radius: 4px;
@@ -137,7 +137,7 @@ iframe {
 }
 
 .blogtextcontainer {
-        padding: 0 10px 0 20px;
+        padding: 0 15px 0 20px;
         width: fit-content;
         height: fit-content;
         margin-bottom: 5vh;                        
@@ -145,7 +145,8 @@ iframe {
 
 .blogtextcontainer strong{
         /*color: #333 !important;*/
-        color: #292929;
+        /*color: #292929;*/
+        color: #050709;
         font-size: 16px;
         font-weight: 600 !important;
         letter-spacing: 1px;
@@ -154,8 +155,9 @@ iframe {
 .blogtext {
         font-family: 'Muli', Arial, sans-serif;
         /*color: #4b4f56;*/
-        color: #292929;
-        line-height: 1.9em;
+        /*color: #292929;*/
+        color: #050709;
+        line-height: 1.6em;
         font-weight: 400;
         letter-spacing: 1px;
         padding: 0 10px 0 0;

@@ -111,9 +111,9 @@ export class MakalaContentsComponent implements OnInit {
        this.myEvent.emit(button);
   }
 
-  // getArticle(id: number):void{
-  //   this.makalatitlesService.getArticle(id)
-  // }
+  getArticle(id: number):void{
+    this.makalatitlesService.getArticle(id) //fetch an article, solving swithing articles issue
+  }
 
   getMakala(id: number): void { 
       this.makala = null;

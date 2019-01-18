@@ -1,0 +1,104 @@
+.ccontainer {
+   width: 100% !important;
+   margin: 0;
+   padding: 0;
+}
+.businessdescription {
+   background-color: #ffffff;
+   height: 78vh;
+   margin: 0;
+   overflow: hidden;
+}
+
+.lpimagebed {
+   padding: 0;
+}
+
+img {
+   width: 100%;
+   height: 100%;
+}
+
+.descriptiontext {
+   padding: 2vh 8vw 0 8vw;
+}
+
+.descriptiontext h3 {
+    color: #050709;
+    font-family: Gidole;
+ }
+
+.calltoaction {
+   background-color: rgba(70, 26, 66, 1);
+   width: 100%;
+   height: 22vh;
+   margin: 0;
+   /* overflow: scroll; */
+}
+
+.cab-bed {
+
+}
+
+.cab-bed img {
+    margin: 0 3% 0 30%;
+}
+
+#kujiungaicon {
+    width: 18px;
+    height: 18px;
+}
+
+#blogposticon {
+    width: 22px;
+    height: 22px;
+}
+
+#shuhudaicon {
+    width: 16px;
+    height: 16px;
+}
+
+.cab-bed button {
+    color: #ffffff;
+    font-family: Gidole;
+    font-weight: 500;
+    width: fit-content;
+    margin-top: 8vh;
+    /* margin-left: 33%; */
+    border: none;
+    background: none;
+    padding: 10px 7px;
+    border-radius: 6px;
+}
+
+@media all and (max-width: 768px){
+
+/* #first {
+    order: 2;
+}
+
+#second {
+    order: 1;
+} */
+
+.lpimagebed {
+    /* width: 100%; */
+ }
+
+.calltoaction {
+    overflow: scroll;
+ }
+
+.cab-bed img {
+    margin: 0 3% 0 27%;
+}
+
+.cab-bed button {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    padding: 0 7px;
+}
+
+
+}

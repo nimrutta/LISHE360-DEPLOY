@@ -40,7 +40,7 @@
 
    .brandname {
         /*color: #949494;*/
-        color: rgba(0, 0, 0, 0.7);
+        color: rgba(0, 0, 0, 0.9);
         font-size: 19px;
         font-weight: 700;
         margin: 43px 5px 0 0;    /*margin top to match margin top menuitems2*/
@@ -295,7 +295,7 @@ a > .Makalabutton  :hover {
 }
 
 .makalamaelekezo {
-        color: rgba(0, 0, 0, 0.8);
+        color: rgba(0, 0, 0, 0.9);
         font-size: 13px;
         /*font-family: Montserrat;*/
         font-family: 'Muli', Arial, sans-serif;
@@ -352,7 +352,10 @@ input::placeholder {
 }
 
 .bidhaasectiontitle {
-        margin: 20px 0 20px 15px;
+        color: rgba(0,0,0, 0.8);
+        width: fit-content;
+        margin: 20px auto;
+        font-weight: 500;
 }
 
 .itemimage {
@@ -378,6 +381,7 @@ input::placeholder {
 
 #contact a {
         color: rgba(101, 47, 133, 1);
+        font-weight: 500;
      }
 
 .clear {

@@ -35,6 +35,7 @@ import { BidhaaCategoryComponent } from './bidhaa-category/bidhaa-category.compo
 import { UploadVideoComponent } from './upload-video/upload-video.component';
 import { NunuabidhaaComponent } from './nunuabidhaa/nunuabidhaa.component';
 import { SafePipe } from './safepipe.pipe';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { SafePipe } from './safepipe.pipe';
                  UploadVideoComponent,
                  SafePipe,
                  NunuabidhaaComponent,
+                 LandingpageComponent,
                  ],
                  
   providers: [ SearchService,

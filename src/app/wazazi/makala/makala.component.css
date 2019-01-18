@@ -32,7 +32,7 @@
 
 .box div p {
         color: #050709;
-        line-height: 185%;
+        line-height: 165%;
         font-size: 18px;
         margin: 15px 5vw;
 }
@@ -43,6 +43,7 @@
        /*color: rgba(0, 0, 0, 0.8);*/
        color: #050709;
        margin: 0 5vw;
+       font-family: Gidole;
 }
 
 .oneimage {

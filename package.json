@@ -25,6 +25,7 @@
     "@angular/router": "~4.3.1",
     "@angular/tsc-wrapped": "~4.3.1",
     "@angular/upgrade": "~4.3.1",
+    "@typopro/web-gidole": "^3.7.5",
     "angular-in-memory-web-api": "~0.3.2",
     "angular2-image-upload": "^1.0.0-rc.0",
     "angular2-twitter-share-button": "^0.2.1",

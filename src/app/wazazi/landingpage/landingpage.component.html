@@ -1,0 +1,37 @@
+<div class="ccontainer">
+  <div class="row businessdescription">
+    
+    <div class="col-sm-5 col-md-push-7 descriptiontext" id="second">
+       <h3>Karibu LISHE 360</h3>
+       <p>Tuna toa elimu ya lishe ya watoto wadogo, maswala yanayohusu maandalizi bora ya chakula, 
+          ratiba itakayomfaa mtoto, mahitaji ya virutubisho kulingana na umri wa mtoto
+           na kadhalika. Darasa letu limekwisha saidia maelfu ya wazazi, karibu unufaike
+            wewe na mwanao kwa elimu hii..
+       </p>
+    </div>
+
+    <div class="col-sm-7 col-md-pull-5 lpimagebed" id="first">
+      <img class="lpimage" src="./../../../assets/images/LISHE 360 LP1.jpeg">
+    </div>
+
+  </div>
+
+  <div class="row calltoaction">
+      <div class="col-sm-4 cab-bed">
+        <img id="kujiungaicon" src="./../../../assets/images/about-us.png"><button id="kujiunga" (click)="jiungenaDarasa()">JIUNGE NA DARASA</button>
+      </div>
+
+      <div class="col-sm-4 cab-bed">
+        <img id="blogposticon" src="./../../../assets/images/feed.png"><a routerLink="blog-section" routerLinkActive="active"><button id="blogpost">MAKALA ZA LISHE</button></a>
+      </div>
+
+      <div class="col-sm-4 cab-bed">
+        <img id="shuhudaicon" src="./../../../assets/images/testimonials.png"><a routerLink="shuhuda" routerLinkActive="active"><button id="shuhuda">SHUHUDA</button></a>
+      </div>
+  </div>
+
+  <app-taharifa-kujiunga *ngIf="thanksforjoiningprogram" (closeModal)="closeModal($event)"></app-taharifa-kujiunga>
+  <app-kujiunga *ngIf="showmyId" (myevenT)="myevenT($event)" (closeButtonClicked)="closeButtonClicked($event)"></app-kujiunga>
+
+</div>
+

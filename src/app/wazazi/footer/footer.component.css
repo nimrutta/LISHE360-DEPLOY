@@ -3,8 +3,10 @@
       width: 100% ;
       height: fit-content;
       vertical-align: middle;
-      background-color: #1e1324; 
-      border-top: solid 6px #652f85
+      /*background-color: #1e1324;  23,1,18*/
+      /*background-color:rgba(70, 26, 66, 1)*/
+      background-color: rgba(34, 13, 33, 1);
+      /*border-top: solid 6px #652f85*/
      
         }  
 
@@ -17,24 +19,42 @@
   .subcsribe_button {
       height: 35px;
       width: 150px;
-      margin-top: 33px;
+      margin-top: 3vh;
       margin-right: 4%;
-      color: #e4acb4;
+      /*color: #e4acb4;*/
+      color: #fff;
       font-size: 17px;
-      background-color: #fff;
-      border: 1px solid #ffb6c1;
-      border-radius: 20px;
+      background: none;
+      /*border: 1px solid #ffb6c1;*/
+      border: 2px solid #fff;
+      border-radius: 10px;
       float: right;
  }  
 
  .addressline {
       font-size: 11px;
-      color: #ffb6c1;
-       width: 40%;
+      /*color: #ffb6c1;*/
+      color: #fff;
+       width: 90%;
       margin-left: 9%; 
      
-      margin-top: 17px !important;
+      margin-top: 1vh !important;
  }
+
+ .addressline p img {
+     width: 20px;
+     height: 20px;
+     margin: 0 2vw 0 0;
+ }
+
+ .addressline .sociaolmediabutton:first-child {
+    width: 31px;
+    height: 31px;
+ }
+
+ .addressline .sociaolmediabutton {
+    margin: 2vh 4vw 0 4vw;
+}
 
  #subscribe_text {
      line-height: 2em;
@@ -46,28 +66,46 @@
  /*#493829*/
 
  @media all and (max-width: 767px){
+
+     .footersection1 {
+      padding: 0;
+    }
+
+    .footersection2 {
+        padding: 0;
+      }
+
      .subcsribe_button {
       height: 27px;
       width: 110px;
-      margin-top: 11px;
+      margin-top: 2vh;
       margin-right: 4%;
+      margin-bottom: 1vh;
       padding: 0 0 10px 0;
-      color: #652f85;
       font-size: 13px;
-      background-color: #fff;
-      border: 1px solid #ffb6c1;
-      border-radius: 20px;
+      background: none;
+      border-radius: 10px;
       float: right;
  } 
     
  .addressline {
       font-size: 7px;
-      color: #ffb6c1;
-      width: 60%;
+      width: 90%;
       margin-left: 10px; 
       margin-right: auto !important;
-      margin-top: 9px !important;
+      margin-top: 0 !important;
+      margin-bottom: 1vh;
  }
+
+ .addressline .sociaolmediabutton:first-child {
+    width: 25px;
+    height: 25px;
+ }
+
+ .addressline .sociaolmediabutton {
+    width: 26px;
+    height: 26px;
+}
 
  .addressline p {
      font-size: 11px;
