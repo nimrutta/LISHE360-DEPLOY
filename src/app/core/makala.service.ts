@@ -14,9 +14,9 @@ export class MakalaService {
   makala: Makala[];
   makalaCategories: Makalacategory[];
   makalaTitles: string[];
-  private makalaUrl = 'http://api.jualishebora.gq/api/v1/topics';
-  private makalaCategoriesUrl = 'http://api.jualishebora.gq/api/v1/topicCategories';
-  private foodsUrl = 'http://api.jualishebora.gq/api/v1/foods';
+  private makalaUrl = 'http://lishe-360.herokuapp.com/api/v1/topics';
+  private makalaCategoriesUrl = 'http://lishe-360.herokuapp.com/api/v1/topicCategories';
+  private foodsUrl = 'http://lishe-360.herokuapp.com/api/v1/foods';
 
   fetchedmakalaTitles: Subject<string[]> = new Subject<string[]>();
   fetchedmakalaCategories: Subject<Makalacategory[]> = new Subject<Makalacategory[]>();
