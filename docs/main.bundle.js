@@ -2150,7 +2150,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/uploadimage/uploadimage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<!--<image-upload\n  url=\"http://api.jualishebora.gq/api/v1/images\"\n  (uploadFinished)=\"onUploadFinished($event)\"\n></image-upload> -->\n\n<image-upload\n  url=\"http://lishe-360.herokuapp.com/api/v1/images\"\n  (uploadFinished)=\"onUploadFinished($event)\"\n></image-upload>\n\n\n<!--  http://localhost:8000/api/v1/images   http://lishe-360.herokuapp.com/api/v1/images-->"
+module.exports = "\n<!--<image-upload\n  url=\"http://api.jualishebora.gq/api/v1/images\"\n  (uploadFinished)=\"onUploadFinished($event)\"\n></image-upload> -->\n\n<image-upload\n  url=\"https://lishe-360.herokuapp.com/api/v1/images\"\n  (uploadFinished)=\"onUploadFinished($event)\"\n></image-upload>\n\n\n<!--  http://localhost:8000/api/v1/images   https://lishe-360.herokuapp.com/api/v1/images-->"
 
 /***/ }),
 
@@ -2445,7 +2445,7 @@ var AuthenticationService = (function () {
         this.router = router;
     }
     AuthenticationService.prototype.login = function (email, password) {
-        return this.http.post('http://lishe-360.herokuapp.com/api/v1/users/signin', //http://localhost:8000/api/v1/users
+        return this.http.post('https://lishe-360.herokuapp.com/api/v1/users/signin', //http://localhost:8000/api/v1/users
         { email: email, password: password }, { headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]({ 'X-Requested-With': 'XMLHttpRequest' }) })
             .map(function (response) {
             var token = response.json().token;
@@ -2504,7 +2504,7 @@ var BidhaaService = (function () {
         this.fetchedOrders = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"]();
         //notification = new Subject<any>();
         this.bidhaaUrl = 'http://localhost:8000/api/v1/products';
-        this.bidhaaCategoriesUrl = 'http://lishe-360.herokuapp.com/api/v1/productsCategories'; // 'http://localhost:8000/api/v1/productsCategories' ;
+        this.bidhaaCategoriesUrl = 'https://lishe-360.herokuapp.com/api/v1/productsCategories'; // 'http://localhost:8000/api/v1/productsCategories' ;
         this.bidhaaByIdUrl = 'http://localhost:8000/api/v1/productsByCategory';
         this.orderUrl = 'http://localhost:8000/api/v1/orders';
     }
@@ -2666,14 +2666,14 @@ var BlogpostService = (function () {
     //http://api.tuseme.co.tz/api/v1/reports
     function BlogpostService(http) {
         this.http = http;
-        this.blogpostUrl = 'http://lishe-360.herokuapp.com/api/v1/posts'; // 'http://api.jualishebora.gq/api/v1/posts'
+        this.blogpostUrl = 'https://lishe-360.herokuapp.com/api/v1/posts'; // 'http://api.jualishebora.gq/api/v1/posts'
         this.fetchedBlogpost = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
     }
     BlogpostService.prototype.upload = function (fileToUpload) {
         var input = new FormData();
         input.append("audio", fileToUpload);
-        return this.http.post("http://lishe-360.herokuapp.com/api/v1/audio", input);
+        return this.http.post("https://lishe-360.herokuapp.com/api/v1/audio", input);
     };
     BlogpostService.prototype.postFile = function (fileToUpload) {
         var _this = this;
@@ -2777,7 +2777,7 @@ var ClientsService = (function () {
     //http://api.tuseme.co.tz/api/v1/users
     function ClientsService(http) {
         this.http = http;
-        this.clientsUrl = 'http://lishe-360.herokuapp.com/api/v1/wazazis';
+        this.clientsUrl = 'https://lishe-360.herokuapp.com/api/v1/wazazis';
     }
     ClientsService.prototype.getClients = function () {
         return this.http.get(this.clientsUrl)
@@ -3010,9 +3010,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var MakalaService = (function () {
     function MakalaService(http) {
         this.http = http;
-        this.makalaUrl = 'http://lishe-360.herokuapp.com/api/v1/topics';
-        this.makalaCategoriesUrl = 'http://lishe-360.herokuapp.com/api/v1/topicCategories';
-        this.foodsUrl = 'http://lishe-360.herokuapp.com/api/v1/foods';
+        this.makalaUrl = 'https://lishe-360.herokuapp.com/api/v1/topics';
+        this.makalaCategoriesUrl = 'https://lishe-360.herokuapp.com/api/v1/topicCategories';
+        this.foodsUrl = 'https://lishe-360.herokuapp.com/api/v1/foods';
         this.fetchedmakalaTitles = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"]();
         this.fetchedmakalaCategories = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"]();
         this.fetchedfoods = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["Subject"]();
@@ -3096,11 +3096,11 @@ var MakalatitlesService = (function () {
     function MakalatitlesService(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
-        this.makalatitlesUrl = 'http://lishe-360.herokuapp.com/api/v1/topics';
-        this.makalacategoriesUrl = 'http://lishe-360.herokuapp.com/api/v1/topicsByCategory'; //http://api.tuseme.co.tz/api/v1/streets
-        this.makalaCategoryNameUrl = 'http://lishe-360.herokuapp.com/api/v1/topicCategories';
-        this.updateUrl = 'http://lishe-360.herokuapp.com/api/v1/topicCategories';
-        this.foodsUrl = 'http://lishe-360.herokuapp.com/api/v1/foods';
+        this.makalatitlesUrl = 'https://lishe-360.herokuapp.com/api/v1/topics';
+        this.makalacategoriesUrl = 'https://lishe-360.herokuapp.com/api/v1/topicsByCategory'; //http://api.tuseme.co.tz/api/v1/streets
+        this.makalaCategoryNameUrl = 'https://lishe-360.herokuapp.com/api/v1/topicCategories';
+        this.updateUrl = 'https://lishe-360.herokuapp.com/api/v1/topicCategories';
+        this.foodsUrl = 'https://lishe-360.herokuapp.com/api/v1/foods';
         this.nameChange = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
         this.fetchedArticles = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"](); //observable ya makala inarudishwa hapa,?
         this.fetchedArticle = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
@@ -3285,7 +3285,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var SubscribersService = (function () {
     function SubscribersService(http) {
         this.http = http;
-        this.subscribersUrl = 'http://lishe-360.herokuapp.com/api/v1/subscribers';
+        this.subscribersUrl = 'https://lishe-360.herokuapp.com/api/v1/subscribers';
     }
     SubscribersService.prototype.getSubscribers = function () {
         return this.http.get(this.subscribersUrl)

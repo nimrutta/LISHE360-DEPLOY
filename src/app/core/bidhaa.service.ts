@@ -25,7 +25,7 @@ export class BidhaaService {
 
 
   bidhaaUrl = 'http://localhost:8000/api/v1/products' ;
-  bidhaaCategoriesUrl =  'http://lishe-360.herokuapp.com/api/v1/productsCategories'// 'http://localhost:8000/api/v1/productsCategories' ;
+  bidhaaCategoriesUrl =  'https://lishe-360.herokuapp.com/api/v1/productsCategories'// 'http://localhost:8000/api/v1/productsCategories' ;
   bidhaaByIdUrl = 'http://localhost:8000/api/v1/productsByCategory' ;
   orderUrl = 'http://localhost:8000/api/v1/orders';
 

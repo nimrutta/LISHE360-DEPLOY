@@ -24,11 +24,11 @@ export class MakalatitlesService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   
-  private makalatitlesUrl = 'http://lishe-360.herokuapp.com/api/v1/topics'
-  private makalacategoriesUrl = 'http://lishe-360.herokuapp.com/api/v1/topicsByCategory'  //http://api.tuseme.co.tz/api/v1/streets
-  private makalaCategoryNameUrl = 'http://lishe-360.herokuapp.com/api/v1/topicCategories'
-  private updateUrl   = 'http://lishe-360.herokuapp.com/api/v1/topicCategories'
-  private foodsUrl = 'http://lishe-360.herokuapp.com/api/v1/foods'
+  private makalatitlesUrl = 'https://lishe-360.herokuapp.com/api/v1/topics'
+  private makalacategoriesUrl = 'https://lishe-360.herokuapp.com/api/v1/topicsByCategory'  //http://api.tuseme.co.tz/api/v1/streets
+  private makalaCategoryNameUrl = 'https://lishe-360.herokuapp.com/api/v1/topicCategories'
+  private updateUrl   = 'https://lishe-360.herokuapp.com/api/v1/topicCategories'
+  private foodsUrl = 'https://lishe-360.herokuapp.com/api/v1/foods'
 
   constructor(private http: Http) { }
   

@@ -13,7 +13,7 @@ export class AuthenticationService {
               private router: Router) { }
 
   login(email: string, password: string) {
-    return this.http.post('http://lishe-360.herokuapp.com/api/v1/users/signin',    //http://localhost:8000/api/v1/users
+    return this.http.post('https://lishe-360.herokuapp.com/api/v1/users/signin',    //http://localhost:8000/api/v1/users
     { email: email, password: password }, 
     {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})})
         .map(

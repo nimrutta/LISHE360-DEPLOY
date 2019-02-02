@@ -53,9 +53,9 @@ var CommentService = (function () {
     function CommentService(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]({ 'Content-Type': 'application/json' });
-        this.commentsUrl = 'http://lishe-360.herokuapp.com/api/v1/comments';
-        this.commentcategoriesUrl = 'http://lishe-360.herokuapp.com/api/v1/topicsByCategory';
-        this.commentCategoryNameUrl = 'http://lishe-360.herokuapp.com/api/v1/topicCategories';
+        this.commentsUrl = 'https://lishe-360.herokuapp.com/api/v1/comments';
+        this.commentcategoriesUrl = 'https://lishe-360.herokuapp.com/api/v1/topicsByCategory';
+        this.commentCategoryNameUrl = 'https://lishe-360.herokuapp.com/api/v1/topicCategories';
         this.nameChange = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
         this.fetchedComments = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
     }
@@ -173,7 +173,7 @@ var SearchService = (function () {
         this.fetchedPosts1 = new __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__["Subject"]();
         this.searchResultsStatus = new __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__["Subject"]();
         this.nameChange = new __WEBPACK_IMPORTED_MODULE_6_rxjs_Subject__["Subject"]();
-        this.baseUrl = 'http://lishe-360.herokuapp.com/api/v1/search/'; //http://api.jualishebora.gq/api/v1/posts
+        this.baseUrl = 'https://lishe-360.herokuapp.com/api/v1/search/'; //http://api.jualishebora.gq/api/v1/posts
         this.queryUrl = '?search=';
         this.http = http;
         this.giphies = [];
@@ -208,7 +208,7 @@ var SearchService = (function () {
     };
     SearchService.prototype.performSearch = function (searchTerm) {
         var _this = this;
-        var apiLink = 'http://lishe-360.herokuapp.com/api/v1/search' // http://api.tuseme.co.tz/api/v1/search/
+        var apiLink = 'https://lishe-360.herokuapp.com/api/v1/search' // http://api.tuseme.co.tz/api/v1/search/
             + searchTerm.value + '?api_key=bc';
         this.http.request(apiLink).subscribe(function (res) {
             _this.giphies = res.json().data;
