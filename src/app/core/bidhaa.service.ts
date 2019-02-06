@@ -24,10 +24,10 @@ export class BidhaaService {
   //notification = new Subject<any>();
 
 
-  bidhaaUrl = 'http://localhost:8000/api/v1/products' ;
-  bidhaaCategoriesUrl = 'http://localhost:8000/api/v1/productsCategories' ;
-  bidhaaByIdUrl = 'http://localhost:8000/api/v1/productsByCategory' ;
-  orderUrl = 'http://localhost:8000/api/v1/orders';
+  bidhaaUrl = 'https://lishe-360.herokuapp.com/api/v1/products' ;
+  bidhaaCategoriesUrl = 'https://lishe-360.herokuapp.com/api/v1/productsCategories' ;
+  bidhaaByIdUrl = 'https://lishe-360.herokuapp.com/api/v1/productsByCategory' ;
+  orderUrl = 'https://lishe-360.herokuapp.com/api/v1/orders';
 
   // getBidhaa(id: number): void {                               
   //   const url = `${this.bidhaaUrl}/${id}`;

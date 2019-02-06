@@ -13,7 +13,7 @@ import { Blogpost } from './../blogpost';
 export class BlogpostService {
   
   blogpost: Blogpost[];
-  private blogpostUrl = 'http://localhost:8000/api/v1/posts';  // 'http://api.jualishebora.gq/api/v1/posts'
+  private blogpostUrl = 'https://lishe-360.herokuapp.com/api/v1/posts';  // 'http://api.jualishebora.gq/api/v1/posts'
   
   //http://api.jualishebora.gq/api/v1/topics  
   //http://api.tuseme.co.tz/api/v1/reports
@@ -30,12 +30,12 @@ export class BlogpostService {
     let input = new FormData();
     input.append("audio", fileToUpload);
 
-    return this.http.post("http://localhost:8000/api/v1/audio", input);
+    return this.http.post("https://lishe-360.herokuapp.com/api/v1/audio", input);
 }
 
 
   postFile(fileToUpload: File): Observable<boolean> {
-    const endpoint = 'http://localhost:8000/api/v1/audio';
+    const endpoint = 'https://lishe-360.herokuapp.com/api/v1/audio';
     const formData: FormData = new FormData();
     formData.append('audio', fileToUpload, fileToUpload.name);
     return this.http

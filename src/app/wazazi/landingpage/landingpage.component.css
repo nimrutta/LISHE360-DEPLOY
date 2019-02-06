@@ -25,7 +25,7 @@ img {
 
 .descriptiontext h3 {
     color: #050709;
-    font-family: Gidole;
+    font-family: Gidole, 'Muli', "Helvetica", Arial, sans-serif;
  }
 
 .calltoaction {
@@ -36,9 +36,9 @@ img {
    /* overflow: scroll; */
 }
 
-.cab-bed {
+/* .cab-bed {
 
-}
+} */
 
 .cab-bed img {
     margin: 0 3% 0 30%;
@@ -61,7 +61,7 @@ img {
 
 .cab-bed button {
     color: #ffffff;
-    font-family: Gidole;
+    font-family: Gidole, 'Muli', "Helvetica", Arial, sans-serif;
     font-weight: 500;
     width: fit-content;
     margin-top: 8vh;
@@ -82,9 +82,9 @@ img {
     order: 1;
 } */
 
-.lpimagebed {
-    /* width: 100%; */
- }
+/* .lpimagebed {
+   
+ } */
 
 .calltoaction {
     overflow: scroll;

@@ -9,7 +9,7 @@ import { Wazazi } from './../wazazi';
 @Injectable()
 export class ClientsService {
   
-  private clientsUrl = 'http://api.jualishebora.gq/api/v1/wazazis'
+  private clientsUrl = 'https://lishe-360.herokuapp.com/api/v1/wazazis'
   //http://api.tuseme.co.tz/api/v1/users
   constructor(private http: Http) { }
   

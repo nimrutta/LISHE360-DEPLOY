@@ -64,7 +64,7 @@ export class BlogSectionComponent implements OnInit {
    searchInputStatus = true;
    name = 'Andela';
    urlFb = 'http://jualishebora.gq';
-   shareurl = ['https://github.com'];
+   shareurl = ['https://lishe360.herokuapp.com'];
    repoUrl = '';
               
    public defaultSocialShareText = [];

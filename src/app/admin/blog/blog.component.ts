@@ -48,9 +48,9 @@ export class BlogComponent implements OnInit {
               }
               }
 
-  public uploader:FileUploader = new FileUploader({url:'http://api.jualishebora.gq/api/v1/images' /*http://localhost:3001/upload*/});
+  public uploader:FileUploader = new FileUploader({url:'https://lishe-360.herokuapp.com/api/v1/images' /*http://localhost:3001/upload*/});
 
-  apiEndPoint: 'http://api.jualishebora.gq/api/v1/images';
+  apiEndPoint: 'https://lishe-360.herokuapp.com/api/v1/images';
 
  
   addFile(): void {

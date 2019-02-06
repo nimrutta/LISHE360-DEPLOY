@@ -43,7 +43,7 @@
        /*color: rgba(0, 0, 0, 0.8);*/
        color: #050709;
        margin: 0 5vw;
-       font-family: Gidole;
+       font-family: Gidole, 'Muli', "Helvetica", Arial, sans-serif;
 }
 
 .oneimage {
