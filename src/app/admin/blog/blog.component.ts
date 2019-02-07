@@ -38,7 +38,7 @@ export class BlogComponent implements OnInit {
 
   post: any = { }
 
-  blogpost:any = {topic_id: 1}
+  blogpost:any = {topic_id: 2}
 
   constructor(private blogpostService: BlogpostService,
               private http: Http

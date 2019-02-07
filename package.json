@@ -48,7 +48,7 @@
     "wfk-montserrat": "^1.0.0",
     "zone.js": "^0.8.4"
   },
-  "devDependencies": {
+  "devDependencies": {  
     "@angular/language-service": "^4.0.0",
     "@types/angular": "^1.5.16",
     "@types/angular-animate": "^1.5.5",
